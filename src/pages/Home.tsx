@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { photographerInfo } from '@/data/photographer';
 import { getFeaturedProjects } from '@/data/projects';
 import { ProjectCard } from '@/components/portfolio/ProjectCard';
+import { GitHubSection } from '@/components/portfolio/GitHubSection';
 import { ScrollIndicator } from '@/components/ui/ScrollIndicator';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { SEOHead } from '@/components/seo/SEOHead';
@@ -157,6 +158,9 @@ export default function Home() {
             </div>
           </ScrollReveal>
         </section>
+
+        {/* GitHub Projects Section */}
+        <GitHubSection />
       </div>
     </>
   );

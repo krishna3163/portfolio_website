@@ -1,41 +1,109 @@
 import type { PhotographerInfo } from '@/types';
 
 export const photographerInfo: PhotographerInfo = {
-  name: 'Sarah Mitchell',
-  tagline: 'Editorial & Commercial Photographer',
-  heroIntroduction: 'Creating visual narratives that capture authentic moments and timeless stories.',
-  biography: `Sarah Mitchell is an award-winning photographer specializing in editorial and commercial work, with recognition including the International Photography Awards Editorial Photographer of the Year 2023 and PDN Photo Annual Winner 2022. With over a decade of experience, her work has been featured in numerous international publications and exhibitions, collaborating with clients such as Vogue, The New York Times, National Geographic, Adobe, Apple, Nike, and Architectural Digest.
+  name: 'Krishna Kumar',
+  tagline: 'Full-Stack Developer & Software Engineer',
+  heroIntroduction: 'Building scalable web applications with modern technologies. Passionate about clean code, system design, and solving complex algorithmic challenges.',
+  biography: `Krishna Kumar is a Computer Science Engineering student at Dr. A.P.J. Abdul Kalam Technical University, specializing in full-stack development and software engineering. With expertise in Java, Python, JavaScript, and modern frameworks like React, Node.js, and Spring Boot, Krishna has developed production-ready applications including e-commerce platforms, AI-powered assistants, and management systems.
 
-Based in New York with an MFA in Photography from the School of Visual Arts, Sarah brings a unique perspective to every project, combining technical excellence with artistic vision. Her approach to photography is deeply rooted in storytelling, believing that every image should convey emotion and meaning beyond its visual appeal.`,
-  approach: `My photography is guided by three principles: authenticity, composition, and light. I believe the best images emerge when subjects feel comfortable and genuine, when composition guides the viewer's eye naturally, and when light reveals the essence of the moment.
+A dedicated problem solver with 100+ LeetCode solutions across various difficulty levels, Krishna specializes in Data Structures, Dynamic Programming, and Algorithm Design. Active in the open-source community, contributing to projects and maintaining repositories with comprehensive documentation.`,
+  approach: `My development philosophy centers on three pillars: clean architecture, user experience, and performance optimization. I believe the best software emerges from understanding both the technical requirements and the human needs it serves.
 
-Whether working on editorial assignments or commercial projects, I strive to create images that transcend their immediate purpose and become lasting visual statements.`,
+Whether building full-stack applications or optimizing database queries, I strive to create solutions that are maintainable, scalable, and deliver real value to users.`,
   awards: [
-    'International Photography Awards - Editorial Photographer of the Year 2023',
-    'PDN Photo Annual - Winner 2022',
-    'Hasselblad Masters Finalist 2021',
-    'Communication Arts Photography Annual 2020'
+    'LeetCode Problem Solver - 100+ Problems Solved',
+    'HackerRank Certified - Java, Python, SQL (Basic to Advanced)',
+    'HackerRank Problem Solving (Basic & Intermediate)',
+    'GitHub Copilot & Prompt Engineering Certified'
   ],
   clients: [
-    'Vogue',
-    'The New York Times',
-    'National Geographic',
-    'Adobe',
-    'Apple',
-    'Nike',
-    'Patagonia',
-    'Architectural Digest'
+    'Open Source Community',
+    'Personal Projects',
+    'Academic Projects',
+    'GitHub Contributors'
   ],
-  education: 'MFA Photography, School of Visual Arts, New York',
-  location: 'New York, NY',
-  email: 'hello@sarahmitchell.com',
-  phone: '+1 (555) 123-4567',
-  availability: 'Currently booking for Q2 2025',
+  education: 'B.Tech in Computer Science & Engineering, Dr. A.P.J. Abdul Kalam Technical University (2023-2027)',
+  location: 'Lucknow, Uttar Pradesh, India',
+  email: 'kk3163019@gmail.com',
+  phone: '+91 8210763241',
+  availability: 'Open to internships and collaboration opportunities',
   socialLinks: {
-    instagram: 'https://instagram.com/sarahmitchellphoto',
-    linkedin: 'https://linkedin.com/in/sarahmitchell',
-    behance: 'https://behance.net/sarahmitchell'
+    instagram: undefined,
+    linkedin: 'https://linkedin.com/in/krishna0858',
+    behance: undefined
   },
-  // Photo by Joshua Sun on Unsplash
-  portraitImage: 'https://images.unsplash.com/photo-1585279968680-6606ee6ed134?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDA2OTF8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjI3Njk1NjB8&ixlib=rb-4.1.0&q=80&w=1080'
+  portraitImage: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDA2OTF8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjI3Njk1NjB8&ixlib=rb-4.1.0&q=80&w=1080'
 };
+
+// GitHub profile and repositories data
+export const githubProfile = {
+  username: 'krishna3163',
+  profileUrl: 'https://github.com/krishna3163',
+  leetcodeUrl: 'https://leetcode.com/krishna0858'
+};
+
+export interface GitHubRepository {
+  id: string;
+  name: string;
+  description: string;
+  technologies: string[];
+  stars: number;
+  forks: number;
+  language: string;
+  url: string;
+  featured: boolean;
+  year: string;
+}
+
+export const githubRepositories: GitHubRepository[] = [
+  {
+    id: 'quickshop',
+    name: 'QuickShop E-Commerce Platform',
+    description: 'Full-stack e-commerce application with secure authentication, product catalog, shopping cart, order management, and Razorpay UPI payment integration. Features an admin dashboard for inventory management.',
+    technologies: ['JavaScript', 'React', 'Node.js', 'Express.js', 'MongoDB', 'Razorpay'],
+    stars: 2,
+    forks: 0,
+    language: 'JavaScript',
+    url: 'https://github.com/krishna3163/quickshop',
+    featured: true,
+    year: '2024'
+  },
+  {
+    id: 'ai-medical-assistant',
+    name: 'AI Medical Assistant',
+    description: 'Intelligent medical assistant application leveraging AI to provide healthcare information and support. Built with TypeScript and React for enhanced type safety and maintainability.',
+    technologies: ['TypeScript', 'React', 'AI/ML Integration'],
+    stars: 1,
+    forks: 0,
+    language: 'TypeScript',
+    url: 'https://github.com/krishna3163/ai-medical-assistant',
+    featured: true,
+    year: '2024'
+  },
+  {
+    id: 'student-management-system',
+    name: 'Student Management System',
+    description: 'CRUD-based application for managing student records with MySQL database connectivity using JDBC. Optimized search functionality with efficient data retrieval algorithms, reducing query time by 40%.',
+    technologies: ['Java', 'MySQL', 'JDBC'],
+    stars: 1,
+    forks: 0,
+    language: 'Java',
+    url: 'https://github.com/krishna3163/student-management-system',
+    featured: true,
+    year: '2024'
+  },
+  {
+    id: 'bank-management-system',
+    name: 'Bank Management System',
+    description: 'Comprehensive banking system featuring customer account management, transaction processing, and account tracking. Utilizes advanced data structures for efficient data management and secure transaction handling.',
+    technologies: ['C', 'Data Structures'],
+    stars: 1,
+    forks: 0,
+    language: 'C',
+    url: 'https://github.com/krishna3163/bank-management-system',
+    featured: false,
+    year: '2024'
+  }
+];
+
+export const getFeaturedRepositories = () => githubRepositories.filter(repo => repo.featured);
