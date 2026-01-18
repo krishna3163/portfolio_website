@@ -7,10 +7,26 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
+bun.lockb
+
+# Next.js
+.next
+out
+*.tsbuildinfo
+next-env.d.ts
+
+# Build
 dist
 dist-ssr
 *.local
+
+# Environment
+.env
+.env.local
+.env.production.local
+.env.development.local
 
 # Editor directories and files
 .vscode/*

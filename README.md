@@ -1,77 +1,209 @@
-# Welcome to your Lovable project
+# Portfolio Clone - Next.js
 
-## Project info
+A pixel-perfect clone of abhishekworks.com built with Next.js, Tailwind CSS, and Framer Motion.
 
-**URL**: https://lovable.dev/projects/6fd12b81-631e-49d3-83b3-86e8b3fab3ae
+## 🚀 Quick Start
 
-## How can I edit this code?
+### Prerequisites
+- Node.js 18+ installed
+- npm or yarn package manager
 
-There are several ways of editing your application.
+### Installation
 
-**Use Lovable**
+```bash
+# Install dependencies
+npm install
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/6fd12b81-631e-49d3-83b3-86e8b3fab3ae) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Run development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📁 Project Structure
 
-**Use GitHub Codespaces**
+```
+portfolio_website/
+├── app/
+│   ├── components/
+│   │   ├── Hero.tsx          # Full-screen hero with video background
+│   │   ├── About.tsx         # About section
+│   │   ├── Projects.tsx      # Projects grid
+│   │   ├── Skills.tsx        # Skills with progress bars
+│   │   ├── Contact.tsx       # Contact section
+│   │   └── Footer.tsx        # Footer
+│   ├── layout.tsx            # Root layout
+│   ├── page.tsx              # Homepage
+│   └── globals.css           # Global styles
+├── public/
+│   └── videos/
+│       └── hero-bg.mp4       # Background video (ADD YOUR VIDEO HERE)
+├── tailwind.config.ts        # Tailwind configuration
+├── next.config.js            # Next.js configuration
+└── package.json
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🎨 Customization
 
-## What technologies are used for this project?
+### Content Placeholders
 
-This project is built with:
+All content is clearly marked and easy to customize:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+**1. Personal Information** (`app/components/Hero.tsx`)
+```typescript
+// Line 40-45: Change name and title
+<h1>Meet <span>Krishna</span>!</h1>
+<p>Software Developer | MERN Stack | Next.js | Python | AWS</p>
+```
 
-## How can I deploy this project?
+**2. About Text** (`app/components/About.tsx`)
+```typescript
+// Lines 20-35: Update your bio
+```
 
-Simply open [Lovable](https://lovable.dev/projects/6fd12b81-631e-49d3-83b3-86e8b3fab3ae) and click on Share -> Publish.
+**3. Projects** (`app/components/Projects.tsx`)
+```typescript
+// Lines 7-30: Edit the projects array
+const projects = [
+  {
+    title: "Your Project",
+    description: "Description...",
+    tech: ["React", "Node.js"],
+    image: "/images/project1.jpg",
+    link: "#"
+  }
+]
+```
 
-## Can I connect a custom domain to my Lovable project?
+**4. Skills** (`app/components/Skills.tsx`)
+```typescript
+// Lines 7-16: Update skills and levels
+const skills = [
+  { name: "Your Skill", level: 90 }
+]
+```
 
-Yes, you can!
+**5. Contact Links** (`app/components/Contact.tsx`)
+```typescript
+// Lines 35-60: Update email, resume link, and social links
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Background Video
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+1. Add your video file to `public/videos/hero-bg.mp4`
+2. Recommended specs:
+   - Format: MP4 (H.264)
+   - Resolution: 1920x1080 or higher
+   - Duration: 10-30 seconds (will loop)
+   - Size: < 10MB for best performance
 
-# ./tailwind-plus folder:
+### Colors & Fonts
 
-The tailwind-plus folder contains tailwind components and themes to be used as inspiration for the project. DO NOT REMOVE THE FOLDER UNLESS SPECIFICALLY TOLD TO DO SO
+Edit `tailwind.config.ts` to customize:
+
+```typescript
+colors: {
+  primary: '#000000',    // Main background
+  accent: '#6366f1',     // Accent color (buttons, highlights)
+}
+fontFamily: {
+  sans: ['Inter'],       // Body font
+  display: ['Plus Jakarta Sans'], // Heading font
+}
+```
+
+## 🌐 Deployment
+
+### Deploy to Vercel (Recommended)
+
+1. Push your code to GitHub
+2. Visit [vercel.com](https://vercel.com)
+3. Click "New Project"
+4. Import your GitHub repository
+5. Vercel will auto-detect Next.js and deploy
+
+**OR** use Vercel CLI:
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel --prod
+```
+
+### Environment Variables
+
+No environment variables required for basic deployment.
+
+## 🎬 Animations
+
+All animations use Framer Motion with these features:
+
+- **Scroll-triggered reveals**: Sections fade in as you scroll
+- **Hover effects**: Cards scale and change on hover
+- **Smooth transitions**: All interactions use easing curves
+- **Loading animations**: Hero text reveals sequentially
+
+### Animation Timing
+
+- Hero text: 0.6s duration, staggered by 0.2s
+- Scroll reveals: 0.8s duration
+- Hover effects: 0.3s duration
+- Progress bars: 1s duration
+
+## 📱 Responsive Design
+
+Breakpoints:
+- Mobile: < 768px
+- Tablet: 768px - 1279px
+- Desktop: 1280px+
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Language**: TypeScript
+- **Fonts**: Google Fonts (Inter, Plus Jakarta Sans)
+
+## 📝 Build Commands
+
+```bash
+# Development
+npm run dev
+
+# Production build
+npm run build
+
+# Start production server
+npm start
+
+# Lint code
+npm run lint
+```
+
+## 🐛 Troubleshooting
+
+**Video not playing?**
+- Ensure video is in `public/videos/hero-bg.mp4`
+- Check video format (MP4 recommended)
+- Try a smaller file size
+
+**Animations not working?**
+- Clear browser cache
+- Check browser console for errors
+- Ensure Framer Motion is installed
+
+**Build errors?**
+- Delete `node_modules` and `.next` folders
+- Run `npm install` again
+- Check Node.js version (18+ required)
+
+## 📄 License
+
+© Krishna Kumar, 2024. All rights reserved.
+
+---
+
+**Note**: This is a clone template. Replace all placeholder content with your own information before deploying.
