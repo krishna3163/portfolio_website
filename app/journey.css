@@ -5,9 +5,39 @@
 
 .timeline {
     position: relative;
-    max-width: 900px;
+    max-width: 1200px;
+    /* Increased from 900px for monitors */
     margin: 0 auto;
-    padding: 40px 0;
+    padding: 60px 0;
+}
+
+/* Large Monitor Adjustments */
+@media (min-width: 1440px) {
+    .timeline {
+        max-width: 1400px;
+    }
+
+    .timeline::before {
+        width: 4px;
+    }
+
+    .timeline-marker {
+        width: 80px;
+        height: 80px;
+        font-size: 36px;
+    }
+
+    .timeline-year {
+        font-size: 2.5rem;
+    }
+
+    .timeline-title {
+        font-size: 1.6rem;
+    }
+
+    .timeline-desc {
+        font-size: 1.2rem;
+    }
 }
 
 .timeline::before {

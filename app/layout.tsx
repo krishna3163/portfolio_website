@@ -12,6 +12,7 @@ import LiquidGlassNav from './components/LiquidGlassNav'
 import { AuthProvider } from './contexts/AuthContext'
 import ClientEffects from './components/ClientEffects'
 import AdvancedFeatures from './components/AdvancedFeatures'
+import HorrorFeatures from './components/HorrorFeatures'
 
 const inter = Inter({
     subsets: ['latin'],
