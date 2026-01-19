@@ -81,13 +81,37 @@ export function useSound() {
         oscillator.stop(audioContext.currentTime + 0.1)
     }, [isMuted, audioContext])
 
-    // Start ambient loop
+    // Start ambient loop with random timing
     const startAmbient = useCallback(() => {
         if (!isMuted && !isAmbientPlaying) {
             setIsAmbientPlaying(true)
-            // In production, load and loop actual ambient audio file
+
+            // Play ambient sound at random intervals (15-45 seconds)
+            const playRandomAmbient = () => {
+                if (audioContext && !isMuted) {
+                    const oscillator = audioContext.createOscillator()
+                    const gainNode = audioContext.createGain()
+
+                    oscillator.connect(gainNode)
+                    gainNode.connect(audioContext.destination)
+
+                    oscillator.frequency.value = 100
+                    gainNode.gain.value = 0.03
+                    oscillator.type = 'sine'
+
+                    oscillator.start()
+                    oscillator.stop(audioContext.currentTime + 2)
+                }
+
+                // Schedule next sound at random interval (15-45 seconds)
+                const randomDelay = 15000 + Math.random() * 30000
+                setTimeout(playRandomAmbient, randomDelay)
+            }
+
+            // Start the cycle
+            playRandomAmbient()
         }
-    }, [isMuted, isAmbientPlaying])
+    }, [isMuted, isAmbientPlaying, audioContext])
 
     // Stop ambient
     const stopAmbient = useCallback(() => {

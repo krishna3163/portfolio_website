@@ -5,6 +5,8 @@
     z-index: 999;
     opacity: 0;
     animation: fadeInSanity 1s ease-out forwards;
+    display: none;
+    /* Hidden as requested */
 }
 
 @keyframes fadeInSanity {
