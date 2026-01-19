@@ -9,6 +9,9 @@
 .guestbook-form-container {
     padding: var(--spacing-xl);
     margin-bottom: var(--spacing-2xl);
+    position: relative;
+    z-index: 50;
+    /* Ensure form is above overlays */
 }
 
 .guestbook-form {
