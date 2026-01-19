@@ -61,8 +61,15 @@ export default function HorrorFeatures() {
             // Pick a random element
             const element = elements[Math.floor(Math.random() * elements.length)] as HTMLElement
 
-            // Only glitch if valid text and not too long
-            if (element.innerText && element.innerText.length < 100 && !element.closest('.horror-alert-overlay')) {
+            // Only glitch if valid text, not too long, and SAFE (no links/children)
+            // Fixes bug where "Sign In" link was destroyed by glitch effect
+            if (element.innerText &&
+                element.innerText.length < 100 &&
+                !element.closest('.horror-alert-overlay') &&
+                element.children.length === 0 && // Don't glitch containers with Links/Buttons
+                !element.closest('a') &&         // Don't glitch inside links
+                !element.closest('button')       // Don't glitch inside buttons
+            ) {
                 const originalText = element.innerText
                 const originalColor = element.style.color
 
