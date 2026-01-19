@@ -1,209 +1,240 @@
-# Portfolio Clone - Next.js
+# 👻 Krishna Kumar's Portfolio - Enter the Void
 
-A pixel-perfect clone of abhishekworks.com built with Next.js, Tailwind CSS, and Framer Motion.
+A **horror-themed** personal portfolio website built with modern web technologies. This isn't your average portfolio - it's an immersive experience with spooky animations, interactive elements, and a unique dark aesthetic.
 
-## 🚀 Quick Start
+---
 
-### Prerequisites
-- Node.js 18+ installed
-- npm or yarn package manager
+## 🎬 Preview
 
-### Installation
+<!-- Add your screenshots/videos here -->
+![Homepage Screenshot](./screenshots/homepage.png)
 
-```bash
-# Install dependencies
-npm install
+![Admin Dashboard](./screenshots/admin.png)
 
-# Run development server
-npm run dev
-```
+<!-- Add a demo video/GIF here -->
+![Demo Video](./screenshots/demo.gif)
 
-Open [http://localhost:3000](http://localhost:3000) to view the site.
+---
+
+## ✨ Features
+
+### 🎨 Visual Experience
+- **Horror Theme** - Blood red & void black color palette
+- **Animated Ghost Character** - A floating ghost that follows you around
+- **Typing Animation** - Dynamic "I am a..." text that cycles through roles
+- **3D Page Flip Transitions** - Smooth card-flip animation when navigating pages
+- **Glitch Effects** - CSS glitch animation on titles
+- **Fog & Blood Overlays** - Atmospheric horror effects
+
+### 🔐 Authentication & Admin
+- **Firebase Authentication** - Email/password + Google Sign-In
+- **Protected Admin Dashboard** - Only accessible by admin email
+- **Media Upload System** - Upload project images and videos
+
+### 📝 Interactive Features
+- **Guestbook** - Visitors can leave messages with emoji spirits
+- **Contact Form** - Direct messages saved to database
+- **Project Gallery** - Dynamic project cards with links to GitHub
+
+### 🛠️ Technical Features
+- **Responsive Design** - Works on all screen sizes
+- **Auto-Hide Navigation** - Nav bar hides on scroll down
+- **Preloader Animation** - "Welcome to Krishna's Portfolio Void" intro
+- **Smooth Scroll** - Polished scrolling experience
+
+---
+
+## 🏗️ Tech Stack
+
+| Category | Technology |
+|----------|------------|
+| **Framework** | Next.js 14 (App Router) |
+| **Language** | TypeScript |
+| **Styling** | Tailwind CSS + Custom CSS |
+| **Animation** | Framer Motion |
+| **Auth** | Firebase Authentication |
+| **Storage** | Firebase Storage |
+| **Database** | Supabase (PostgreSQL) |
+| **Deployment** | Vercel |
+
+---
 
 ## 📁 Project Structure
 
 ```
 portfolio_website/
 ├── app/
-│   ├── components/
-│   │   ├── Hero.tsx          # Full-screen hero with video background
-│   │   ├── About.tsx         # About section
-│   │   ├── Projects.tsx      # Projects grid
-│   │   ├── Skills.tsx        # Skills with progress bars
-│   │   ├── Contact.tsx       # Contact section
-│   │   └── Footer.tsx        # Footer
-│   ├── layout.tsx            # Root layout
-│   ├── page.tsx              # Homepage
-│   └── globals.css           # Global styles
-├── public/
-│   └── videos/
-│       └── hero-bg.mp4       # Background video (ADD YOUR VIDEO HERE)
-├── tailwind.config.ts        # Tailwind configuration
-├── next.config.js            # Next.js configuration
-└── package.json
+│   ├── components/        # Reusable UI components
+│   │   ├── LiquidGlassNav.tsx
+│   │   ├── AnimatedCharacter.tsx
+│   │   ├── TypewriterEffect.tsx
+│   │   ├── Preloader.tsx
+│   │   └── ...
+│   ├── admin/             # Admin dashboard (protected)
+│   ├── guestbook/         # Guestbook page
+│   ├── projects/          # Projects listing
+│   ├── project/[id]/      # Individual project pages
+│   ├── login/             # Login page
+│   ├── signup/            # Signup page
+│   ├── contact/           # Contact form
+│   ├── globals.css        # Global styles & theme
+│   └── page.tsx           # Homepage
+├── lib/
+│   ├── firebase.ts        # Firebase configuration
+│   ├── supabase.ts        # Supabase client
+│   └── storage.ts         # File upload utilities
+├── public/                # Static assets
+└── screenshots/           # README images (add your own!)
 ```
-
-## 🎨 Customization
-
-### Content Placeholders
-
-All content is clearly marked and easy to customize:
-
-**1. Personal Information** (`app/components/Hero.tsx`)
-```typescript
-// Line 40-45: Change name and title
-<h1>Meet <span>Krishna</span>!</h1>
-<p>Software Developer | MERN Stack | Next.js | Python | AWS</p>
-```
-
-**2. About Text** (`app/components/About.tsx`)
-```typescript
-// Lines 20-35: Update your bio
-```
-
-**3. Projects** (`app/components/Projects.tsx`)
-```typescript
-// Lines 7-30: Edit the projects array
-const projects = [
-  {
-    title: "Your Project",
-    description: "Description...",
-    tech: ["React", "Node.js"],
-    image: "/images/project1.jpg",
-    link: "#"
-  }
-]
-```
-
-**4. Skills** (`app/components/Skills.tsx`)
-```typescript
-// Lines 7-16: Update skills and levels
-const skills = [
-  { name: "Your Skill", level: 90 }
-]
-```
-
-**5. Contact Links** (`app/components/Contact.tsx`)
-```typescript
-// Lines 35-60: Update email, resume link, and social links
-```
-
-### Background Video
-
-1. Add your video file to `public/videos/hero-bg.mp4`
-2. Recommended specs:
-   - Format: MP4 (H.264)
-   - Resolution: 1920x1080 or higher
-   - Duration: 10-30 seconds (will loop)
-   - Size: < 10MB for best performance
-
-### Colors & Fonts
-
-Edit `tailwind.config.ts` to customize:
-
-```typescript
-colors: {
-  primary: '#000000',    // Main background
-  accent: '#6366f1',     // Accent color (buttons, highlights)
-}
-fontFamily: {
-  sans: ['Inter'],       // Body font
-  display: ['Plus Jakarta Sans'], // Heading font
-}
-```
-
-## 🌐 Deployment
-
-### Deploy to Vercel (Recommended)
-
-1. Push your code to GitHub
-2. Visit [vercel.com](https://vercel.com)
-3. Click "New Project"
-4. Import your GitHub repository
-5. Vercel will auto-detect Next.js and deploy
-
-**OR** use Vercel CLI:
-
-```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Deploy
-vercel --prod
-```
-
-### Environment Variables
-
-No environment variables required for basic deployment.
-
-## 🎬 Animations
-
-All animations use Framer Motion with these features:
-
-- **Scroll-triggered reveals**: Sections fade in as you scroll
-- **Hover effects**: Cards scale and change on hover
-- **Smooth transitions**: All interactions use easing curves
-- **Loading animations**: Hero text reveals sequentially
-
-### Animation Timing
-
-- Hero text: 0.6s duration, staggered by 0.2s
-- Scroll reveals: 0.8s duration
-- Hover effects: 0.3s duration
-- Progress bars: 1s duration
-
-## 📱 Responsive Design
-
-Breakpoints:
-- Mobile: < 768px
-- Tablet: 768px - 1279px
-- Desktop: 1280px+
-
-## 🛠️ Tech Stack
-
-- **Framework**: Next.js 14 (App Router)
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
-- **Language**: TypeScript
-- **Fonts**: Google Fonts (Inter, Plus Jakarta Sans)
-
-## 📝 Build Commands
-
-```bash
-# Development
-npm run dev
-
-# Production build
-npm run build
-
-# Start production server
-npm start
-
-# Lint code
-npm run lint
-```
-
-## 🐛 Troubleshooting
-
-**Video not playing?**
-- Ensure video is in `public/videos/hero-bg.mp4`
-- Check video format (MP4 recommended)
-- Try a smaller file size
-
-**Animations not working?**
-- Clear browser cache
-- Check browser console for errors
-- Ensure Framer Motion is installed
-
-**Build errors?**
-- Delete `node_modules` and `.next` folders
-- Run `npm install` again
-- Check Node.js version (18+ required)
-
-## 📄 License
-
-© Krishna Kumar, 2024. All rights reserved.
 
 ---
 
-**Note**: This is a clone template. Replace all placeholder content with your own information before deploying.
+## 🚀 Running Locally
+
+### Prerequisites
+- Node.js 18+ installed
+- npm or yarn
+- Firebase project (for auth)
+- Supabase project (for database)
+
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/portfolio_website.git
+cd portfolio_website
+```
+
+### Step 2: Install Dependencies
+
+```bash
+npm install
+```
+
+### Step 3: Environment Setup
+
+Create a `.env.local` file in the root directory:
+
+```env
+# Firebase Configuration
+NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+
+# Supabase Configuration
+NEXT_PUBLIC_SUPABASE_URL=https://your_project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+```
+
+### Step 4: Setup Supabase Database
+
+Run this SQL in your Supabase SQL Editor:
+
+```sql
+-- Contact Submissions Table
+CREATE TABLE IF NOT EXISTS contact_submissions (
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    name TEXT NOT NULL,
+    email TEXT NOT NULL,
+    message TEXT NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Guestbook Table
+CREATE TABLE IF NOT EXISTS guestbook (
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    user_id TEXT NOT NULL,
+    author_name TEXT NOT NULL,
+    message TEXT NOT NULL,
+    emoji TEXT DEFAULT '👻',
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Project Media Table (for admin uploads)
+CREATE TABLE IF NOT EXISTS project_media (
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    repo_name TEXT NOT NULL UNIQUE,
+    image_url TEXT,
+    video_url TEXT,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Enable Row Level Security
+ALTER TABLE contact_submissions ENABLE ROW LEVEL SECURITY;
+ALTER TABLE guestbook ENABLE ROW LEVEL SECURITY;
+ALTER TABLE project_media ENABLE ROW LEVEL SECURITY;
+
+-- Create policies for public access
+CREATE POLICY "Public can insert contacts" ON contact_submissions FOR INSERT TO public WITH CHECK (true);
+CREATE POLICY "Public can read guestbook" ON guestbook FOR SELECT TO public USING (true);
+CREATE POLICY "Public can insert guestbook" ON guestbook FOR INSERT TO public WITH CHECK (true);
+CREATE POLICY "Public can read media" ON project_media FOR SELECT TO public USING (true);
+```
+
+### Step 5: Run the Development Server
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## 🔑 Admin Access
+
+The admin dashboard is protected and only accessible by the configured admin email.
+
+**Admin Email:** `kk3163019@gmail.com`
+
+To access:
+1. Go to `/login`
+2. Sign in with the admin email
+3. Navigate to `/admin`
+
+---
+
+## 📸 Screenshots
+
+Add your own screenshots in the `screenshots/` folder:
+
+| Page | Screenshot |
+|------|------------|
+| Home | `![Home](./screenshots/home.png)` |
+| Projects | `![Projects](./screenshots/projects.png)` |
+| Admin | `![Admin](./screenshots/admin.png)` |
+| Guestbook | `![Guestbook](./screenshots/guestbook.png)` |
+
+---
+
+## 🎥 Demo Video
+
+<!-- Embed your demo video here -->
+Add a screen recording showing the preloader, typing animation, and page transitions.
+
+---
+
+## 🌐 Live Demo
+
+**[View Live Site →](https://your-domain.vercel.app)**
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+## 🤝 Contact
+
+**Krishna Kumar**
+- Email: kk3163019@gmail.com
+- GitHub: [github.com/krishna3163](https://github.com/krishna3163)
+- LinkedIn: [linkedin.com/in/krishnakumar](https://linkedin.com/in/krishnakumar)
+
+---
+
+> 👻 *"Enter if you dare..."*
