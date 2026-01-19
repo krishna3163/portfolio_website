@@ -60,6 +60,7 @@ export default function RootLayout({
         <html lang="en" className="scroll-smooth" suppressHydrationWarning data-theme="dark">
             <body className={`${inter.variable} ${playfair.variable} ${robotoSlab.variable} font-sans antialiased`}>
                 <AuthProvider>
+                    <ScrollToTop />
                     <LiquidGlassNav />
 
                     {/* Blood Drip Effect */}
