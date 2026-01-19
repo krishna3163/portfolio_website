@@ -19,15 +19,19 @@
         --glass-highlight: rgba(255, 255, 255, 0.35);
 
         /* Accent Colors */
+        /* Horror Theme Palette (Red/Black) */
         --color-primary: #cc0000;
         --color-secondary: #8b0000;
         --color-accent-glow: rgba(204, 0, 0, 0.6);
+        --color-blood: #8a0303;
 
-        /* Text Colors */
-        --color-text-primary: #e8ebff;
-        --color-text-secondary: #a6b0ff;
-        --color-text-muted: #6b7280;
-        --color-text-disabled: #4b5563;
+        --color-background: #000000;
+        --color-surface: #0a0a0a;
+        --color-surface-glass: rgba(10, 10, 10, 0.7);
+
+        --color-text-default: #e0e0e0;
+        --color-text-muted: #a0a0a0;
+        --color-text-inverted: #000000;
 
         /* Status Colors */
         --color-success: #22c55e;

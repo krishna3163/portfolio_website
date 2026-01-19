@@ -23,31 +23,45 @@ export default function Preloader() {
                     transition={{ duration: 0.8, ease: "easeInOut" }}
                     className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#050814]"
                 >
-                    <div className="relative">
-                        {/* Pulse effect */}
-                        <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full animate-pulse" />
+                    <div className="relative flex flex-col items-center justify-center">
+                        {/* Ghost Character Recreated for Preloader */}
+                        <motion.div
+                            initial={{ scale: 0.5, opacity: 0, y: 50 }}
+                            animate={{ scale: 1.2, opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, ease: "backOut" }}
+                            className="character-body mb-8"
+                            style={{ width: '100px', height: '120px' }} // Slightly larger for intro
+                        >
+                            <div className="ghost-shape" style={{ width: '100px', height: '110px' }}>
+                                <div className="ghost-face">
+                                    <div className="ghost-eyes">
+                                        <div className="ghost-eye"></div>
+                                        <div className="ghost-eye"></div>
+                                    </div>
+                                    <div className="ghost-mouth" style={{ background: '#300', height: '15px' }}></div>
+                                </div>
+                                <div className="ghost-bottom">
+                                    <div className="ghost-wave" style={{ width: '34px', background: 'rgba(255, 100, 100, 0.8)' }}></div>
+                                    <div className="ghost-wave" style={{ width: '34px', background: 'rgba(255, 100, 100, 0.8)' }}></div>
+                                    <div className="ghost-wave" style={{ width: '34px', background: 'rgba(255, 100, 100, 0.8)' }}></div>
+                                </div>
+                            </div>
+                            <div className="character-glow" style={{ background: 'radial-gradient(circle, rgba(204, 0, 0, 0.4) 0%, transparent 70%)' }}></div>
+                            <div className="character-shadow"></div>
+                        </motion.div>
 
                         <motion.div
-                            initial={{ scale: 0.8, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            transition={{ duration: 0.5 }}
-                            className="relative z-10 flex flex-col items-center"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.5, duration: 0.5 }}
+                            className="text-center"
                         >
-                            <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-4 tracking-wider">
-                                ENTERING VOID
+                            <h1 className="text-4xl md:text-6xl font-display font-bold text-red-500 mb-2 tracking-wider glitch" data-text="SUMMONING...">
+                                SUMMONING...
                             </h1>
-                            <div className="w-48 h-1 bg-white/10 rounded-full overflow-hidden">
-                                <motion.div
-                                    initial={{ x: '-100%' }}
-                                    animate={{ x: '100%' }}
-                                    transition={{
-                                        repeat: Infinity,
-                                        duration: 1.5,
-                                        ease: "easeInOut"
-                                    }}
-                                    className="w-full h-full bg-gradient-to-r from-transparent via-primary to-transparent"
-                                />
-                            </div>
+                            <p className="text-red-900/60 font-mono text-sm tracking-[0.5em] uppercase">
+                                Preparing the Void
+                            </p>
                         </motion.div>
                     </div>
                 </motion.div>
