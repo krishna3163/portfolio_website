@@ -16,6 +16,18 @@ export default function Home() {
                     <p className="hero-subtitle">
                         Software Engineer & Open Source Contributor
                     </p>
+                    <p className="hero-description text-muted" style={{
+                        maxWidth: '800px',
+                        margin: '20px auto',
+                        fontSize: '1.1rem',
+                        lineHeight: '1.8'
+                    }}>
+                        🎓 3rd Year B.Tech CSE Student | 💻 Full Stack Developer | 🚀 Passionate about building scalable web applications
+                        <br />
+                        Specializing in <span className="text-blood">React</span>, <span className="text-blood">Node.js</span>, <span className="text-blood">Java</span>, and <span className="text-blood">Python</span>
+                        <br />
+                        🌟 Certified in AWS, Microsoft AI, and Google Prompt Engineering
+                    </p>
                     <div className="hero-cta">
                         <Link href="/projects" className="btn btn-primary text-lg">
                             Explore Projects
@@ -72,6 +84,111 @@ export default function Home() {
 
                 <ScrollReveal animation="fade-up">
                     <RepositoryList />
+                </ScrollReveal>
+
+                <ScrollReveal animation="fade-up">
+                    <section className="journey-section">
+                        <div className="liquid-glass card">
+                            <h2 className="text-blood flicker">🎓 My College Journey</h2>
+                            <p className="text-muted" style={{ textAlign: 'center', marginBottom: '40px' }}>
+                                From 12th pass to becoming a skilled developer
+                            </p>
+
+                            <div className="timeline">
+                                {/* 2023 */}
+                                <div className="timeline-item">
+                                    <div className="timeline-marker">📚</div>
+                                    <div className="timeline-content liquid-glass">
+                                        <h3 className="timeline-year">2023</h3>
+                                        <h4 className="timeline-title">12th Pass & College Admission</h4>
+                                        <p className="timeline-desc">
+                                            Started B.Tech CSE journey at Ambalika Institute of Engineering & Technology
+                                        </p>
+                                        <div className="timeline-tech">
+                                            <span className="tech-tag">1st Year</span>
+                                            <span className="tech-tag">C Programming</span>
+                                            <span className="tech-tag">Java Basics</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* 2024 */}
+                                <div className="timeline-item">
+                                    <div className="timeline-marker">💻</div>
+                                    <div className="timeline-content liquid-glass">
+                                        <h3 className="timeline-year">2024</h3>
+                                        <h4 className="timeline-title">2nd Year - Core Fundamentals</h4>
+                                        <p className="timeline-desc">
+                                            Deep dive into programming fundamentals and data structures
+                                        </p>
+                                        <div className="timeline-tech">
+                                            <span className="tech-tag">Java</span>
+                                            <span className="tech-tag">OOP</span>
+                                            <span className="tech-tag">Data Structures</span>
+                                            <span className="tech-tag">DSA</span>
+                                            <span className="tech-tag">Operating System</span>
+                                            <span className="tech-tag">Python</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* 2025 */}
+                                <div className="timeline-item active">
+                                    <div className="timeline-marker">🚀</div>
+                                    <div className="timeline-content liquid-glass">
+                                        <h3 className="timeline-year">2025</h3>
+                                        <h4 className="timeline-title">3rd Year - Advanced Skills (Current)</h4>
+                                        <p className="timeline-desc">
+                                            Mastering full stack development and modern technologies
+                                        </p>
+                                        <div className="timeline-tech">
+                                            <span className="tech-tag">SQL</span>
+                                            <span className="tech-tag">Web Development</span>
+                                            <span className="tech-tag">DBMS</span>
+                                            <span className="tech-tag">DAA</span>
+                                            <span className="tech-tag">Data Analytics</span>
+                                            <span className="tech-tag">Machine Learning</span>
+                                            <span className="tech-tag">React</span>
+                                            <span className="tech-tag">Node.js</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* 2026 */}
+                                <div className="timeline-item future">
+                                    <div className="timeline-marker">🎯</div>
+                                    <div className="timeline-content liquid-glass">
+                                        <h3 className="timeline-year">2026</h3>
+                                        <h4 className="timeline-title">4th Year - Final Year Projects</h4>
+                                        <p className="timeline-desc">
+                                            Industry-ready projects and placement preparation
+                                        </p>
+                                        <div className="timeline-tech">
+                                            <span className="tech-tag">Final Year Project</span>
+                                            <span className="tech-tag">Advanced Development</span>
+                                            <span className="tech-tag">System Design</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* 2027 */}
+                                <div className="timeline-item future">
+                                    <div className="timeline-marker">🎓</div>
+                                    <div className="timeline-content liquid-glass">
+                                        <h3 className="timeline-year">2027</h3>
+                                        <h4 className="timeline-title">Graduation & Beyond</h4>
+                                        <p className="timeline-desc">
+                                            Ready to conquer the tech industry!
+                                        </p>
+                                        <div className="timeline-tech">
+                                            <span className="tech-tag">B.Tech Graduate</span>
+                                            <span className="tech-tag">Software Engineer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </ScrollReveal>
 
                 <ScrollReveal animation="fade-up" delay={200}>
