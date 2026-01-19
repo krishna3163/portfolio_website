@@ -99,6 +99,7 @@ export default function LiquidGlassNav() {
                 <Link href="/" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Home</Link>
                 <Link href="/projects" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Projects</Link>
                 <Link href="/skills" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Skills</Link>
+                <Link href="/certificates" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Certificates</Link>
                 <Link href="/about" className="nav-link" onClick={() => setMobileMenuOpen(false)}>About</Link>
                 <Link href="/guestbook" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Guestbook</Link>
                 <Link href="/contact" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
