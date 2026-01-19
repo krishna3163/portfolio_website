@@ -26,9 +26,9 @@ export default function Home() {
                                 "Digital Alchemist",
                                 "Systems Architect"
                             ]}
-                            speed={80}
-                            deleteSpeed={50}
-                            waitBeforeDelete={2000}
+                            speed={120}
+                            deleteSpeed={70}
+                            waitBeforeDelete={2500}
                             className="text-white"
                         />
                     </div>
