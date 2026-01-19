@@ -7,7 +7,7 @@ import repositoriesData from '../data/repositories.json'
 import { useRouter } from 'next/navigation'
 
 export default function AdminDashboard() {
-    const { user, logout } = useAuth()
+    const { user, signOut: logout } = useAuth()
     const router = useRouter()
 
     const [selectedRepo, setSelectedRepo] = useState('')
