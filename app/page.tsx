@@ -4,37 +4,47 @@ import Link from 'next/link'
 import ScrollReveal from './components/ScrollReveal'
 import TypewriterEffect from './components/TypewriterEffect'
 import RepositoryList from './components/RepositoryList'
+import AboutSection from './components/AboutSection'
 
 export default function Home() {
     return (
         <>
             <main className="page-container">
                 <section className="hero-section fade-in">
-                    <h1 className="glitch text-gradient text-7xl md:text-9xl mb-8 font-extrabold tracking-tight" data-text="Hi There! I'm Krishna">
-                        <TypewriterEffect text="Hi There! I'm Krishna" speed={80} />
+                    <h1 className="glitch text-gradient text-5xl md:text-7xl mb-6 font-extrabold tracking-tight" data-text="Krishna Kumar">
+                        Krishna Kumar
                     </h1>
-                    <p className="hero-subtitle">
-                        Software Engineer & Open Source Contributor
-                    </p>
+                    <h2 className="text-2xl md:text-4xl text-blood mb-8 font-semibold">
+                        Full Stack Developer | <span className="text-white">React, Node.js, Java & Python</span>
+                    </h2>
+
                     <p className="hero-description text-muted" style={{
                         maxWidth: '800px',
-                        margin: '20px auto',
-                        fontSize: '1.1rem',
+                        margin: '0 auto 30px',
+                        fontSize: '1.2rem',
                         lineHeight: '1.8'
                     }}>
-                        🎓 3rd Year B.Tech CSE Student | 💻 Full Stack Developer | 🚀 Passionate about building scalable web applications
-                        <br />
-                        Specializing in <span className="text-blood">React</span>, <span className="text-blood">Node.js</span>, <span className="text-blood">Java</span>, and <span className="text-blood">Python</span>
-                        <br />
-                        🌟 Certified in AWS, Microsoft AI, and Google Prompt Engineering
+                        Building scalable <span className="text-blood">Web Apps</span>, robust <span className="text-blood">Backend Systems</span>, and meaningful <span className="text-blood">Open Source Contributions</span>.
                     </p>
-                    <div className="hero-cta">
+
+                    <div className="flex flex-wrap justify-center gap-4 mb-10">
+                        {['🚀 Full Stack Development', '⚡ React & Next.js', '🛠️ Node.js & Express', '☕ Java & Spring', '🐍 Python & AI'].map((skill) => (
+                            <span key={skill} className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium hover:border-red-500/50 transition-colors">
+                                {skill}
+                            </span>
+                        ))}
+                    </div>
+
+                    <div className="hero-cta flex justify-center gap-4">
                         <Link href="/projects" className="btn btn-primary text-lg">
-                            Explore Projects
+                            View Projects
                         </Link>
                         <Link href="/contact" className="btn btn-secondary text-lg">
                             Contact Me
                         </Link>
+                        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-outline text-lg" style={{ border: '1px solid rgba(255,255,255,0.2)' }}>
+                            📄 Resume
+                        </a>
                     </div>
                 </section>
 
@@ -189,6 +199,10 @@ export default function Home() {
                             </div>
                         </div>
                     </section>
+                </ScrollReveal>
+
+                <ScrollReveal animation="fade-up">
+                    <AboutSection />
                 </ScrollReveal>
 
                 <ScrollReveal animation="fade-up" delay={200}>

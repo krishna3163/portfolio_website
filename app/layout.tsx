@@ -36,17 +36,19 @@ const robotoSlab = Roboto_Slab({
 })
 
 export const metadata: Metadata = {
-    title: 'Krishna Kumar | Horror Portfolio',
-    description: 'A dark portfolio showcasing cursed projects and nightmare-inducing code. Blockchain Developer, Problem Solver, Web Developer.',
+    title: 'Krishna Kumar | Full Stack Developer | React, Node.js, Java & Python',
+    description: 'Portfolio of Krishna Kumar, a Full Stack Developer specializing in React, Node.js, Java, and Python. View projects, skills, and open source contributions.',
+    keywords: ['Full Stack Developer', 'React Developer', 'Node.js Developer', 'Java Developer', 'Python Developer', 'Web Application Development', 'Backend Systems', 'Open Source Contributor', 'Software Engineer Portfolio'],
     openGraph: {
-        title: 'Krishna Kumar | Horror Portfolio',
-        description: 'Enter the void - A horror-themed developer portfolio',
+        title: 'Krishna Kumar | Full Stack Developer',
+        description: 'Building scalable web applications and backend systems. React, Node.js, Java, Python.',
         images: ['/images/AbhishekX.png'],
+        type: 'website',
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Krishna Kumar | Horror Portfolio',
-        description: 'Enter the void - A horror-themed developer portfolio',
+        title: 'Krishna Kumar | Full Stack Developer',
+        description: 'Building scalable web applications and backend systems.',
         images: ['/images/AbhishekX.png'],
     },
 }
