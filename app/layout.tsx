@@ -10,6 +10,7 @@ import './components/AnimatedCharacter.css'
 import LiquidGlassNav from './components/LiquidGlassNav'
 import { AuthProvider } from './contexts/AuthContext'
 import ClientEffects from './components/ClientEffects'
+import AdvancedFeatures from './components/AdvancedFeatures'
 
 const inter = Inter({
     subsets: ['latin'],
@@ -76,6 +77,9 @@ export default function RootLayout({
 
                     {/* Client-side Effects */}
                     <ClientEffects />
+
+                    {/* Advanced Horror Features */}
+                    <AdvancedFeatures />
 
                     {children}
                 </AuthProvider>

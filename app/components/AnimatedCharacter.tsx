@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef, useCallback } from 'react'
+import { useSanity } from '../hooks/useSanity'
 
 interface Position {
     x: number
@@ -9,6 +10,7 @@ interface Position {
 
 interface AnimatedCharacterProps {
     messages?: string[]
+    onGhostClick?: () => void
 }
 
 const defaultMessages = [
@@ -55,7 +57,7 @@ const hoverMessages = [
 
 type CharacterState = 'idle' | 'walking-left' | 'walking-right' | 'waving' | 'scared'
 
-export default function AnimatedCharacter({ messages = defaultMessages }: AnimatedCharacterProps) {
+export default function AnimatedCharacter({ messages = defaultMessages, onGhostClick }: AnimatedCharacterProps) {
     const [position, setPosition] = useState<Position>({ x: 100, y: 0 })
     const [targetPosition, setTargetPosition] = useState<Position>({ x: 100, y: 0 })
     const [characterState, setCharacterState] = useState<CharacterState>('idle')
@@ -67,6 +69,7 @@ export default function AnimatedCharacter({ messages = defaultMessages }: Animat
     const lastMousePos = useRef<Position>({ x: 0, y: 0 })
     const lastClickTime = useRef<number>(0)
     const mouseSpeed = useRef<number>(0)
+    const { restore } = useSanity()
 
     // Track mouse clicks
     useEffect(() => {
@@ -217,6 +220,8 @@ export default function AnimatedCharacter({ messages = defaultMessages }: Animat
     const handleClick = () => {
         setCharacterState('waving')
         showRandomMessage()
+        restore(15) // Restore 15 sanity when clicking ghost
+        onGhostClick?.()
         setTimeout(() => setCharacterState('idle'), 1500)
     }
 

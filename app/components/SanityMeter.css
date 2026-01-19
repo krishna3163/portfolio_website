@@ -1,0 +1,285 @@
+.sanity-meter {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    opacity: 0;
+    animation: fadeInSanity 1s ease-out forwards;
+}
+
+@keyframes fadeInSanity {
+    to {
+        opacity: 1;
+    }
+}
+
+.sanity-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 20px;
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid rgba(204, 0, 0, 0.3);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(204, 0, 0, 0.3);
+}
+
+/* Creepy Eye */
+.sanity-eye {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.eye-outer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.eye-pupil {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #000 60%, #cc0000);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.eye-shine {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+}
+
+.eye-lid {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: #8b0000;
+    height: 50%;
+    transition: transform 0.5s ease;
+    transform-origin: center;
+}
+
+.eye-lid-top {
+    top: 0;
+    border-radius: 50% 50% 0 0;
+}
+
+.eye-lid-bottom {
+    bottom: 0;
+    border-radius: 0 0 50% 50%;
+}
+
+/* Sanity Bar */
+.sanity-bar-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 180px;
+}
+
+.sanity-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--color-text-secondary);
+    font-family: monospace;
+}
+
+.sanity-bar-bg {
+    position: relative;
+    width: 100%;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sanity-bar-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #cc0000, #ff6666);
+    transition: width 0.5s ease, background 0.3s ease;
+    border-radius: 6px;
+}
+
+.sanity-bar-glitch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent 40%, rgba(255, 255, 255, 0.3) 50%, transparent 60%);
+    animation: glitchScan 3s linear infinite;
+    opacity: 0.5;
+}
+
+@keyframes glitchScan {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.sanity-value {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    font-family: monospace;
+}
+
+.sanity-message {
+    min-height: 16px;
+    font-size: 12px;
+    color: #ff6666;
+    font-style: italic;
+    text-align: center;
+    font-family: 'Times New Roman', serif;
+}
+
+/* Sanity Level Effects */
+.sanity-meter.uneasy .sanity-container {
+    animation: flicker 2s infinite;
+}
+
+.sanity-meter.unstable .sanity-container {
+    animation: shake 0.3s infinite, flicker 1s infinite;
+}
+
+.sanity-meter.breaking .sanity-container {
+    animation: shake 0.2s infinite, flicker 0.5s infinite;
+    border-color: rgba(255, 0, 0, 0.8);
+}
+
+.sanity-meter.insane .sanity-container {
+    animation: shakeHard 0.1s infinite, flicker 0.2s infinite;
+    border-color: #ff0000;
+    box-shadow: 0 0 50px rgba(255, 0, 0, 0.8);
+}
+
+.sanity-meter.insane .sanity-bar-fill {
+    background: linear-gradient(90deg, #ff0000, #000);
+}
+
+.sanity-meter.insane .sanity-message {
+    animation: glitchText 0.3s infinite;
+}
+
+@keyframes flicker {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-2px);
+    }
+
+    75% {
+        transform: translateX(2px);
+    }
+}
+
+@keyframes shakeHard {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(-4px, 2px);
+    }
+
+    50% {
+        transform: translate(4px, -2px);
+    }
+
+    75% {
+        transform: translate(-2px, -4px);
+    }
+}
+
+@keyframes glitchText {
+
+    0%,
+    100% {
+        transform: translate(0);
+        opacity: 1;
+    }
+
+    20% {
+        transform: translate(-2px, 2px);
+        opacity: 0.8;
+    }
+
+    40% {
+        transform: translate(2px, -2px);
+        opacity: 0.9;
+    }
+
+    60% {
+        transform: translate(-1px, -1px);
+        opacity: 0.7;
+    }
+
+    80% {
+        transform: translate(1px, 1px);
+        opacity: 0.9;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .sanity-meter {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .sanity-container {
+        padding: 8px 12px;
+        gap: 12px;
+    }
+
+    .sanity-eye {
+        width: 40px;
+        height: 40px;
+    }
+
+    .sanity-bar-container {
+        min-width: 120px;
+    }
+}
