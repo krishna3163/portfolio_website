@@ -55,13 +55,18 @@
     padding: 8px 12px 10px;
     border: none;
     border-radius: 99em;
-    background: var(--color-surface-glass);
+    background: rgba(20, 20, 20, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: var(--glass-border);
-    box-shadow: var(--shadow-lg);
+    border: 2px solid rgba(204, 0, 0, 0.4);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 30px rgba(204, 0, 0, 0.3);
     position: relative;
     transition: all var(--duration-base) var(--ease);
+}
+
+.switcher:hover {
+    border-color: rgba(204, 0, 0, 0.6);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 40px rgba(204, 0, 0, 0.5);
 }
 
 .switcher__legend {
@@ -91,7 +96,8 @@
     display: block;
     width: 100%;
     transition: scale var(--duration-base) var(--ease-bounce);
-    --c: var(--color-text-default);
+    --c: rgba(255, 255, 255, 0.6);
+    filter: drop-shadow(0 0 8px rgba(204, 0, 0, 0.5));
 }
 
 .switcher__option {
@@ -111,7 +117,7 @@
 }
 
 .switcher__option:hover {
-    --c: var(--color-primary);
+    --c: rgba(255, 255, 255, 1);
 }
 
 .switcher__option:hover .switcher__icon {
@@ -119,12 +125,13 @@
 }
 
 .switcher__option:has(input:checked) {
-    --c: var(--color-text-glow);
+    --c: #fff;
     cursor: auto;
 }
 
 .switcher__option:has(input:checked) .switcher__icon {
     scale: 1;
+    filter: drop-shadow(0 0 12px rgba(255, 0, 0, 0.8));
 }
 
 /* Animated Toggle Background */
@@ -137,9 +144,9 @@
     width: 84px;
     height: calc(100% - 10px);
     border-radius: 99em;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    background: linear-gradient(135deg, rgba(204, 0, 0, 0.8), rgba(139, 0, 0, 0.8));
     z-index: 1;
-    box-shadow: var(--shadow-glow);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6), inset 0 0 10px rgba(0, 0, 0, 0.5);
     transition: translate var(--duration-base) var(--ease-bounce);
 }
 
