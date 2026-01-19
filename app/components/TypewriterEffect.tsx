@@ -1,101 +1,94 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 interface TypewriterEffectProps {
     text: string | string[]
-    speed?: number
-    deleteSpeed?: number
-    delay?: number
-    waitBeforeDelete?: number
+    typingSpeed?: number
+    deletingSpeed?: number
+    delayAfterTyping?: number
+    delayAfterDeleting?: number
     cursor?: boolean
+    cursorChar?: string
+    cursorBlinkSpeed?: number
     className?: string
 }
 
 export default function TypewriterEffect({
     text,
-    speed = 100,
-    deleteSpeed = 50,
-    delay = 100,
-    waitBeforeDelete = 2000,
+    typingSpeed = 70,
+    deletingSpeed = 40,
+    delayAfterTyping = 1200,
+    delayAfterDeleting = 500,
     cursor = true,
+    cursorChar = '|',
+    cursorBlinkSpeed = 600,
     className = ''
 }: TypewriterEffectProps) {
     const [displayText, setDisplayText] = useState('')
-    const [currentIndex, setCurrentIndex] = useState(0)
     const [isDeleting, setIsDeleting] = useState(false)
     const [loopNum, setLoopNum] = useState(0)
+    const timerRef = useRef<NodeJS.Timeout | null>(null)
 
     useEffect(() => {
-        // Handle single string case simpler
-        if (typeof text === 'string') {
-            if (currentIndex < text.length) {
-                const timeout = setTimeout(() => {
-                    setDisplayText(prev => prev + text[currentIndex])
-                    setCurrentIndex(prev => prev + 1)
-                }, speed)
-                return () => clearTimeout(timeout)
-            }
-            return
-        }
+        const texts = Array.isArray(text) ? text : [text]
+        const currentText = texts[loopNum % texts.length]
 
-        // Handle array of strings (looping)
-        const i = loopNum % text.length
-        const fullText = text[i]
-
-        const handleTyping = () => {
+        const tick = () => {
             if (isDeleting) {
-                setDisplayText(prev => fullText.substring(0, prev.length - 1))
+                // Deleting characters
+                setDisplayText(prev => currentText.substring(0, prev.length - 1))
             } else {
-                setDisplayText(prev => fullText.substring(0, prev.length + 1))
+                // Typing characters
+                setDisplayText(prev => currentText.substring(0, prev.length + 1))
             }
-
-            // Determine next speed
-            let typeSpeed = speed
-            if (isDeleting) typeSpeed = deleteSpeed
-
-            // Check if word is finished or deleted
-            if (!isDeleting && displayText === fullText) {
-                typeSpeed = waitBeforeDelete
-                setIsDeleting(true)
-            } else if (isDeleting && displayText === '') {
-                setIsDeleting(false)
-                setLoopNum(loopNum + 1)
-                typeSpeed = 500 // Pause before next word
-            }
-
-            return setTimeout(handleTyping, typeSpeed)
         }
 
-        const timer = setTimeout(handleTyping, 100) // Initial kick
-        return () => clearTimeout(timer)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [displayText, isDeleting, loopNum, text, speed, deleteSpeed, waitBeforeDelete]) // simplified deps
+        // Determine the next timeout duration
+        let timeout: number
 
-    // Cursor blink effect - Removed as per instruction
-    // useEffect(() => {
-    //     if (!cursor) return
+        if (!isDeleting && displayText === currentText) {
+            // Finished typing, wait before deleting
+            timeout = delayAfterTyping
+            timerRef.current = setTimeout(() => setIsDeleting(true), timeout)
+        } else if (isDeleting && displayText === '') {
+            // Finished deleting, move to next word
+            setIsDeleting(false)
+            setLoopNum(loopNum + 1)
+            timeout = delayAfterDeleting
+            timerRef.current = setTimeout(() => { }, timeout)
+        } else {
+            // Still typing or deleting
+            timeout = isDeleting ? deletingSpeed : typingSpeed
+            timerRef.current = setTimeout(tick, timeout)
+        }
 
-    //     const blinkInterval = setInterval(() => {
-    //         setShowCursor(prev => !prev)
-    //     }, 800) // Slower, relaxed blink
+        return () => {
+            if (timerRef.current) clearTimeout(timerRef.current)
+        }
+    }, [displayText, isDeleting, loopNum, text, typingSpeed, deletingSpeed, delayAfterTyping, delayAfterDeleting])
 
-    //     return () => clearInterval(blinkInterval)
-    // }, [cursor])
-
-    // CSS-based cursor blink is smoother than JS interval
     return (
-        <span className={`typewriter ${className}`}>
+        <span
+            className={`typewriter ${className}`}
+            style={{
+                fontFamily: 'Inter, sans-serif',
+                letterSpacing: '-0.02em',
+                lineHeight: 1.1,
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                display: 'inline-block'
+            }}
+        >
             {displayText}
             {cursor && (
                 <span
-                    className="typewriter-cursor text-primary ml-1 inline-block"
+                    className="typewriter-cursor text-primary ml-0.5 inline-block font-light"
                     style={{
-                        opacity: 1,
-                        animation: 'cursorBlink 1s ease-in-out infinite'
+                        animation: `cursorBlink ${cursorBlinkSpeed}ms ease-in-out infinite`
                     }}
                 >
-                    |
+                    {cursorChar}
                 </span>
             )}
             <style jsx>{`

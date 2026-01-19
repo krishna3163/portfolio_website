@@ -26,9 +26,11 @@ export default function Home() {
                                 "Digital Alchemist",
                                 "Systems Architect"
                             ]}
-                            speed={120}
-                            deleteSpeed={70}
-                            waitBeforeDelete={2500}
+                            typingSpeed={70}
+                            deletingSpeed={40}
+                            delayAfterTyping={1200}
+                            delayAfterDeleting={500}
+                            cursorBlinkSpeed={600}
                             className="text-white"
                         />
                     </div>
