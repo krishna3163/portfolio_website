@@ -91,7 +91,7 @@ export default function Guestbook() {
             <section className="page-hero fade-in">
                 <h1 className="glitch" data-text="The Dark Guestbook">The Dark Guestbook</h1>
                 <p className="hero-subtitle text-muted">
-                    Leave your mark in the void. Your words echo eternally.
+                    Leave your mark in the void. Your words echo eternally in this cursed realm...
                 </p>
             </section>
 

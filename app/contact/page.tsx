@@ -35,13 +35,20 @@ export default function Contact() {
                     message: formData.message
                 } as any)
 
-            if (error) throw error
+            if (error) {
+                // If table doesn't exist, show helpful error
+                if (error.message.includes('table') || error.message.includes('schema')) {
+                    throw new Error('Database not configured. Please set up the contact_submissions table in Supabase. Check the SQL setup file.')
+                }
+                throw error
+            }
 
             setStatus('success')
             setFormData({ name: '', email: '', subject: '', message: '' })
         } catch (error: any) {
+            console.error('Contact form error:', error)
             setStatus('error')
-            setErrorMessage(error.message || 'Failed to send message')
+            setErrorMessage(error.message || 'Failed to send message. Please try again or contact directly via email.')
         }
     }
 
