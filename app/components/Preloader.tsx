@@ -60,7 +60,7 @@ export default function Preloader() {
                             <h1 className="text-xl md:text-3xl font-display font-bold text-red-500 mb-2 tracking-wider glitch" style={{ fontFamily: 'Playfair Display, serif' }}>
                                 <TypewriterEffect
                                     text="Welcome to Krishna's Portfolio Void"
-                                    speed={50}
+                                    typingSpeed={50}
                                     cursor={true}
                                 />
                             </h1>
