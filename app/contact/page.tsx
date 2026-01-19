@@ -158,11 +158,11 @@ export default function Contact() {
                         <div className="liquid-glass card">
                             <h3 className="text-blood">Direct Channels</h3>
                             <div className="contact-methods">
-                                <a href="mailto:krishnakumar@example.com" className="contact-method">
+                                <a href="mailto:kk3163019@gmail.com" className="contact-method">
                                     <span className="method-icon">📧</span>
                                     <div className="method-details">
                                         <div className="method-label text-muted">Email</div>
-                                        <div className="method-value">krishnakumar@example.com</div>
+                                        <div className="method-value">kk3163019@gmail.com</div>
                                     </div>
                                 </a>
 
@@ -174,7 +174,7 @@ export default function Contact() {
                                     </div>
                                 </a>
 
-                                <a href="https://linkedin.com/in/krishnakumar" target="_blank" rel="noopener noreferrer" className="contact-method">
+                                <a href="https://www.linkedin.com/in/krishna0858" target="_blank" rel="noopener noreferrer" className="contact-method">
                                     <span className="method-icon">💼</span>
                                     <div className="method-details">
                                         <div className="method-label text-muted">LinkedIn</div>
@@ -195,9 +195,9 @@ export default function Contact() {
                         <div className="liquid-glass card">
                             <h3 className="text-blood flicker">Location</h3>
                             <p className="text-muted">
-                                📍 Somewhere in the digital realm<br />
+                                📍 Lucknow, Uttar Pradesh, India<br />
                                 🌍 Available worldwide<br />
-                                ⏰ Timezone: UTC +5:30 (IST)
+                                ⏰ Timezone: IST (UTC +5:30)
                             </p>
                         </div>
 

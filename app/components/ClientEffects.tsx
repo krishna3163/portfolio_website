@@ -11,6 +11,7 @@ const Preloader = dynamic(() => import('./Preloader'), { ssr: false })
 
 export default function ClientEffects() {
     const [enableEffects, setEnableEffects] = useState(true)
+    const [enablePet, setEnablePet] = useState(true)
 
     useEffect(() => {
         // Check for reduced motion preference
@@ -23,22 +24,23 @@ export default function ClientEffects() {
         if (prefersReducedMotion || isMobile) {
             setEnableEffects(false)
         }
-    }, [])
 
-    if (!enableEffects) {
-        return (
-            <>
-                <Preloader />
-            </>
-        )
-    }
+        // Only disable pet on mobile, not on desktop
+        if (isMobile) {
+            setEnablePet(false)
+        }
+    }, [])
 
     return (
         <>
-            <ParticleEffects />
             <Preloader />
-            <CursorTrail />
-            <AnimatedCharacter />
+            {enableEffects && (
+                <>
+                    <ParticleEffects />
+                    <CursorTrail />
+                </>
+            )}
+            {enablePet && <AnimatedCharacter />}
         </>
     )
 }

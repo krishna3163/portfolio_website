@@ -19,9 +19,9 @@
         --glass-highlight: rgba(255, 255, 255, 0.35);
 
         /* Accent Colors */
-        --color-primary: #4f7cff;
-        --color-secondary: #6ddcff;
-        --color-accent-glow: rgba(79, 124, 255, 0.6);
+        --color-primary: #cc0000;
+        --color-secondary: #8b0000;
+        --color-accent-glow: rgba(204, 0, 0, 0.6);
 
         /* Text Colors */
         --color-text-primary: #e8ebff;
@@ -53,7 +53,7 @@
         /* Shadows */
         --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.35);
         --shadow-glass: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
-        --shadow-glow: 0 0 40px rgba(79, 124, 255, 0.45);
+        --shadow-glow: 0 0 40px rgba(204, 0, 0, 0.45);
         --shadow-deep: 0 25px 60px rgba(0, 0, 0, 0.6);
 
         /* Blur */
@@ -95,6 +95,81 @@
         --container-width: 1200px;
         --grid-gap: 24px;
         --section-padding: 80px;
+    }
+
+    /* Light Theme */
+    [data-theme="light"] {
+        --color-bg-primary: #ffffff;
+        --color-bg-secondary: #f5f5f5;
+        --color-bg-surface: rgba(255, 255, 255, 0.8);
+        --color-bg-overlay: rgba(0, 0, 0, 0.1);
+
+        --glass-base: rgba(0, 0, 0, 0.03);
+        --glass-border: rgba(0, 0, 0, 0.1);
+        --glass-highlight: rgba(0, 0, 0, 0.2);
+
+        --color-primary: #cc0000;
+        --color-secondary: #8b0000;
+        --color-accent-glow: rgba(204, 0, 0, 0.3);
+
+        --color-text-primary: #1a1a1a;
+        --color-text-secondary: #4a4a4a;
+        --color-text-muted: #6b7280;
+
+        --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.1);
+        --shadow-glass: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+        --shadow-glow: 0 0 40px rgba(204, 0, 0, 0.2);
+        --shadow-deep: 0 25px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Dark Theme (Default) */
+    [data-theme="dark"] {
+        --color-bg-primary: #050814;
+        --color-bg-secondary: #0b1026;
+        --color-bg-surface: rgba(10, 18, 40, 0.65);
+        --color-bg-overlay: rgba(0, 0, 0, 0.6);
+
+        --glass-base: rgba(255, 255, 255, 0.06);
+        --glass-border: rgba(255, 255, 255, 0.18);
+        --glass-highlight: rgba(255, 255, 255, 0.35);
+
+        --color-primary: #cc0000;
+        --color-secondary: #8b0000;
+        --color-accent-glow: rgba(204, 0, 0, 0.6);
+
+        --color-text-primary: #e8ebff;
+        --color-text-secondary: #a6b0ff;
+        --color-text-muted: #6b7280;
+
+        --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.35);
+        --shadow-glass: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+        --shadow-glow: 0 0 40px rgba(204, 0, 0, 0.45);
+        --shadow-deep: 0 25px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Horror Theme */
+    [data-theme="horror"] {
+        --color-bg-primary: #000000;
+        --color-bg-secondary: #0a0000;
+        --color-bg-surface: rgba(20, 0, 0, 0.8);
+        --color-bg-overlay: rgba(139, 0, 0, 0.3);
+
+        --glass-base: rgba(139, 0, 0, 0.1);
+        --glass-border: rgba(204, 0, 0, 0.3);
+        --glass-highlight: rgba(255, 0, 0, 0.4);
+
+        --color-primary: #ff0000;
+        --color-secondary: #cc0000;
+        --color-accent-glow: rgba(255, 0, 0, 0.8);
+
+        --color-text-primary: #ffcccc;
+        --color-text-secondary: #ff9999;
+        --color-text-muted: #cc6666;
+
+        --shadow-soft: 0 8px 30px rgba(139, 0, 0, 0.5);
+        --shadow-glass: inset 0 0 0 1px rgba(204, 0, 0, 0.3);
+        --shadow-glow: 0 0 60px rgba(255, 0, 0, 0.8);
+        --shadow-deep: 0 25px 60px rgba(139, 0, 0, 0.7);
     }
 
     * {
@@ -254,15 +329,15 @@
 
     .btn-primary {
         background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-        color: var(--color-bg-primary);
-        box-shadow: 0 4px 15px rgba(79, 124, 255, 0.4);
+        color: #ffffff;
+        box-shadow: 0 4px 15px rgba(204, 0, 0, 0.4);
         font-weight: 700;
         letter-spacing: 0.5px;
     }
 
     .btn-primary:hover {
         transform: translateY(-4px) scale(1.02);
-        box-shadow: 0 0 40px rgba(79, 124, 255, 0.6), var(--shadow-soft);
+        box-shadow: 0 0 40px rgba(204, 0, 0, 0.6), var(--shadow-soft);
     }
 
     .btn-secondary {
@@ -300,7 +375,7 @@
     .textarea:focus {
         outline: none;
         border-color: var(--color-primary);
-        box-shadow: 0 0 0 3px rgba(79, 124, 255, 0.2), var(--shadow-glow);
+        box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.2), var(--shadow-glow);
         background: rgba(255, 255, 255, 0.08);
     }
 

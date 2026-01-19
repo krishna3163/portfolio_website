@@ -1,6 +1,32 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
+
+// Language icon mapper
+const getLanguageIcon = (language: string) => {
+    const icons: { [key: string]: string } = {
+        'JavaScript': '🟨',
+        'TypeScript': '🔷',
+        'Python': '🐍',
+        'Java': '☕',
+        'C': '⚙️',
+        'C++': '⚡',
+        'C#': '🎯',
+        'Go': '🐹',
+        'Rust': '🦀',
+        'PHP': '🐘',
+        'Ruby': '💎',
+        'Swift': '🦅',
+        'Kotlin': '🟣',
+        'HTML': '🌐',
+        'CSS': '🎨',
+        'Vue': '💚',
+        'React': '⚛️',
+        'Unknown': '📦'
+    }
+    return icons[language] || '📦'
+}
 import repositoriesData from '../data/repositories.json'
 import Link from 'next/link'
 
@@ -40,7 +66,7 @@ export default function RepositoryList() {
                         >
                             <div className="h-full bg-card/50 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.2)] flex flex-col">
                                 <div className="flex items-center justify-between mb-4">
-                                    <div className="text-3xl">📦</div>
+                                    <div className="text-3xl">{getLanguageIcon(repo.language || 'Unknown')}</div>
                                     <div className="text-xs font-mono text-muted-foreground px-2 py-1 bg-white/5 rounded">
                                         {repo.language || 'Code'}
                                     </div>
