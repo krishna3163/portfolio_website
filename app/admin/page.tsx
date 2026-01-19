@@ -6,6 +6,7 @@ import { useAuth } from '../contexts/AuthContext'
 import repositoriesData from '../data/repositories.json'
 import { useRouter } from 'next/navigation'
 import { uploadProjectMedia } from '../../lib/storage'
+import { supabase } from '../../lib/supabase'
 
 export default function AdminDashboard() {
     const { user, signOut: logout } = useAuth()
@@ -46,10 +47,27 @@ export default function AdminDashboard() {
                 videoUrl = await uploadProjectMedia(videoFile, selectedRepo, 'video')
             }
 
-            setStatus('⏳ Saving Metadata...')
+            setStatus('⏳ Saving Metadata to Database...')
 
-            // TODO: Here we would save the mapping to Firestore/Supabase
-            // For now, we will log it to console as the DB structure is not yet finalized
+            // 2. Prepare update object for Supabase
+            const updates: any = {
+                repo_name: selectedRepo,
+                updated_at: new Date().toISOString()
+            }
+            if (imageUrl) updates.image_url = imageUrl
+            if (videoUrl) updates.video_url = videoUrl
+
+            // 3. Upsert into Supabase project_media table
+            const { error } = await supabase
+                .from('project_media')
+                .upsert(updates, { onConflict: 'repo_name' })
+
+            if (error) {
+                console.error("Supabase Error:", error)
+                setStatus(`⚠️ Media uploaded but DB save failed: ${error.message}`)
+                return;
+            }
+
             console.log('UPLOAD SUCCESS:', {
                 repo: selectedRepo,
                 image: imageUrl,
@@ -57,7 +75,7 @@ export default function AdminDashboard() {
                 timestamp: new Date().toISOString()
             })
 
-            setStatus(`✅ Successfully uploaded media for [${selectedRepo}]!`)
+            setStatus(`✅ Successfully uploaded & mapped media for [${selectedRepo}]!`)
             setImageFile(null)
             setVideoFile(null)
             // Keep repo selected for consecutive uploads if needed

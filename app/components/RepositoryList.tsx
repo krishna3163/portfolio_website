@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
+import repositoriesData from '../data/repositories.json'
+import { supabase } from '../../lib/supabase'
 
 // Language icon mapper
 const getLanguageIcon = (language: string) => {
@@ -27,10 +29,31 @@ const getLanguageIcon = (language: string) => {
     }
     return icons[language] || '📦'
 }
-import repositoriesData from '../data/repositories.json'
-import Link from 'next/link'
 
 export default function RepositoryList() {
+    const [mediaMap, setMediaMap] = useState<Record<string, { image_url?: string, video_url?: string }>>({})
+
+    useEffect(() => {
+        const fetchMedia = async () => {
+            const { data, error } = await supabase
+                .from('project_media')
+                .select('*')
+
+            if (data) {
+                const map: Record<string, any> = {}
+                data.forEach((item: any) => {
+                    map[item.repo_name] = {
+                        image_url: item.image_url,
+                        video_url: item.video_url
+                    }
+                })
+                setMediaMap(map)
+            }
+        }
+
+        fetchMedia()
+    }, [])
+
     return (
         <section id="repositories" className="py-24 md:py-32 px-6">
             <div className="max-w-7xl mx-auto">
@@ -51,44 +74,54 @@ export default function RepositoryList() {
 
                 {/* Repositories Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    {repositoriesData.map((repo, index) => (
-                        <motion.a
-                            href={repo.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.05 }}
-                            whileHover={{ y: -5 }}
-                            className="block"
-                        >
-                            <div className="h-full bg-card/50 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.2)] flex flex-col">
-                                <div className="flex items-center justify-between mb-4">
-                                    <div className="text-3xl">{getLanguageIcon(repo.language || 'Unknown')}</div>
-                                    <div className="text-xs font-mono text-muted-foreground px-2 py-1 bg-white/5 rounded">
-                                        {repo.language || 'Code'}
+                    {repositoriesData.map((repo, index) => {
+                        const media = mediaMap[repo.name]
+                        return (
+                            <motion.a
+                                href={repo.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                key={index}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.1 }}
+                                className="group relative flex flex-col h-full bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(220,38,38,0.2)] transition-all duration-300"
+                            >
+                                {/* Dynamic Media Cover */}
+                                <div className="relative h-48 w-full overflow-hidden bg-black/50 border-b border-white/5">
+                                    {media?.image_url ? (
+                                        <img
+                                            src={media.image_url}
+                                            alt={repo.name}
+                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                        />
+                                    ) : (
+                                        <div className="absolute inset-0 flex items-center justify-center text-4xl group-hover:scale-110 transition-transform duration-300">
+                                            {getLanguageIcon(repo.language)}
+                                        </div>
+                                    )}
+
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" />
+
+                                    <div className="absolute bottom-4 left-4 right-4">
+                                        <h3 className="text-xl font-bold text-white group-hover:text-red-400 transition-colors truncate">
+                                            {repo.name}
+                                        </h3>
+                                        <div className="flex items-center gap-2 mt-2 text-xs text-gray-400">
+                                            <span>{getLanguageIcon(repo.language)} {repo.language}</span>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <h3 className="text-lg font-bold mb-2 text-foreground line-clamp-1 group-hover:text-primary transition-colors">
-                                    {repo.name}
-                                </h3>
-
-                                <p className="text-sm text-muted-foreground mb-4 line-clamp-3 flex-grow">
-                                    {repo.description}
-                                </p>
-
-                                <div className="flex items-center text-sm text-primary font-medium mt-auto">
-                                    <span>View Repository</span>
-                                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                    </svg>
+                                <div className="p-6 flex-grow flex flex-col justify-between relative z-10">
+                                    <p className="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-3">
+                                        {repo.description}
+                                    </p>
                                 </div>
-                            </div>
-                        </motion.a>
-                    ))}
+                            </motion.a>
+                        )
+                    })}
                 </div>
             </div>
         </section>
