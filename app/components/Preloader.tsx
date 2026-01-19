@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
+import TypewriterEffect from './TypewriterEffect'
 
 export default function Preloader() {
     const [isLoading, setIsLoading] = useState(true)
@@ -56,11 +57,15 @@ export default function Preloader() {
                             transition={{ delay: 0.5, duration: 0.5 }}
                             className="text-center"
                         >
-                            <h1 className="text-4xl md:text-6xl font-display font-bold text-red-500 mb-2 tracking-wider glitch" data-text="SUMMONING...">
-                                SUMMONING...
+                            <h1 className="text-xl md:text-3xl font-display font-bold text-red-500 mb-2 tracking-wider glitch" style={{ fontFamily: 'Playfair Display, serif' }}>
+                                <TypewriterEffect
+                                    text="Welcome to Krishna's Portfolio Void"
+                                    speed={50}
+                                    cursor={true}
+                                />
                             </h1>
                             <p className="text-red-900/60 font-mono text-sm tracking-[0.5em] uppercase">
-                                Preparing the Void
+                                Enter if you dare
                             </p>
                         </motion.div>
                     </div>

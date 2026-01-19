@@ -25,7 +25,6 @@ export default function TypewriterEffect({
     const [currentIndex, setCurrentIndex] = useState(0)
     const [isDeleting, setIsDeleting] = useState(false)
     const [loopNum, setLoopNum] = useState(0)
-    const [showCursor, setShowCursor] = useState(true)
 
     useEffect(() => {
         // Handle single string case simpler
@@ -73,17 +72,18 @@ export default function TypewriterEffect({
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [displayText, isDeleting, loopNum, text, speed, deleteSpeed, waitBeforeDelete]) // simplified deps
 
-    // Cursor blink effect
-    useEffect(() => {
-        if (!cursor) return
+    // Cursor blink effect - Removed as per instruction
+    // useEffect(() => {
+    //     if (!cursor) return
 
-        const blinkInterval = setInterval(() => {
-            setShowCursor(prev => !prev)
-        }, 800) // Slower, relaxed blink
+    //     const blinkInterval = setInterval(() => {
+    //         setShowCursor(prev => !prev)
+    //     }, 800) // Slower, relaxed blink
 
-        return () => clearInterval(blinkInterval)
-    }, [cursor])
+    //     return () => clearInterval(blinkInterval)
+    // }, [cursor])
 
+    // CSS-based cursor blink is smoother than JS interval
     return (
         <span className={`typewriter ${className}`}>
             {displayText}
@@ -91,13 +91,19 @@ export default function TypewriterEffect({
                 <span
                     className="typewriter-cursor text-primary ml-1 inline-block"
                     style={{
-                        opacity: showCursor ? 1 : 0,
-                        transition: 'opacity 0.4s ease-in-out' // Smooth fade
+                        opacity: 1,
+                        animation: 'cursorBlink 1s ease-in-out infinite'
                     }}
                 >
                     |
                 </span>
             )}
+            <style jsx>{`
+                @keyframes cursorBlink {
+                    0%, 100% { opacity: 1; }
+                    50% { opacity: 0; }
+                }
+            `}</style>
         </span>
     )
 }

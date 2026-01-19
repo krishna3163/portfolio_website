@@ -21,10 +21,13 @@ export default function Home() {
                                 "React & Node.js Expert",
                                 "Python Enthusiast",
                                 "Problem Solver",
-                                "Open Source Contributor"
+                                "Open Source Contributor",
+                                "Void Explorer",
+                                "Digital Alchemist",
+                                "Systems Architect"
                             ]}
-                            speed={70}
-                            deleteSpeed={40}
+                            speed={80}
+                            deleteSpeed={50}
                             waitBeforeDelete={2000}
                             className="text-white"
                         />
