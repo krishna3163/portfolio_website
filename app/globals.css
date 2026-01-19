@@ -87,14 +87,39 @@
         --line-height-relaxed: 1.75;
 
         /* Animations */
-        --transition-fast: 150ms ease-out;
-        --transition-normal: 300ms ease-in-out;
-        --transition-slow: 600ms ease-in-out;
+        --ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+        --ease-in: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        --ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+        --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+        --ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+        --transition-fast: 200ms var(--ease-out);
+        --transition-normal: 400ms var(--ease-smooth);
+        --transition-slow: 700ms var(--ease-smooth);
+
+        /* Compatibility variables */
+        --duration-base: 300ms;
+        --duration-fast: 150ms;
+        --ease: var(--ease-smooth);
+        --ease-bounce: var(--ease-elastic);
 
         /* Layout */
         --container-width: 1200px;
         --grid-gap: 24px;
         --section-padding: 80px;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        transition: background-color var(--transition-slow), color var(--transition-normal);
+    }
+
+    /* Global Smoothness */
+    * {
+        transition-timing-function: var(--ease-smooth);
     }
 
     /* Light Theme */
