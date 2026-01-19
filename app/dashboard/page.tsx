@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
 export default function Dashboard() {
-    const { user, profile, loading, signOut } = useAuth()
+    const { user, displayName, loading, signOut } = useAuth()
     const router = useRouter()
 
     useEffect(() => {
@@ -38,7 +38,7 @@ export default function Dashboard() {
             <section className="page-hero fade-in">
                 <h1 className="glitch" data-text="Your Dark Realm">Your Dark Realm</h1>
                 <p className="hero-subtitle text-muted">
-                    Welcome back, {profile?.display_name || user.email}
+                    Welcome back, {displayName || user.email}
                 </p>
             </section>
 
@@ -53,8 +53,8 @@ export default function Dashboard() {
                         <div className="profile-info">
                             <div className="avatar-container">
                                 <div className="avatar">
-                                    {profile?.avatar_url ? (
-                                        <img src={profile.avatar_url} alt="Avatar" />
+                                    {user.photoURL ? (
+                                        <img src={user.photoURL} alt="Avatar" />
                                     ) : (
                                         <span className="avatar-placeholder">👻</span>
                                     )}
@@ -63,8 +63,8 @@ export default function Dashboard() {
                             </div>
                             <div className="profile-details">
                                 <p><strong>Email:</strong> {user.email}</p>
-                                <p><strong>Username:</strong> {profile?.username || 'Not set'}</p>
-                                <p><strong>Display Name:</strong> {profile?.display_name || 'Anonymous Soul'}</p>
+                                <p><strong>Display Name:</strong> {displayName || 'Anonymous Soul'}</p>
+                                <p><strong>Account Created:</strong> {user.metadata.creationTime ? new Date(user.metadata.creationTime).toLocaleDateString() : 'Unknown'}</p>
                             </div>
                         </div>
                     </div>

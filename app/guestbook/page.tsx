@@ -16,7 +16,7 @@ interface GuestbookEntry {
 const emojiOptions = ['👻', '💀', '🦇', '🕷️', '🎃', '👽', '🔮', '⚰️', '🌙', '🖤']
 
 export default function Guestbook() {
-    const { user, profile } = useAuth()
+    const { user, displayName } = useAuth()
     const [entries, setEntries] = useState<GuestbookEntry[]>([])
     const [loading, setLoading] = useState(true)
     const [submitting, setSubmitting] = useState(false)
@@ -57,8 +57,8 @@ export default function Guestbook() {
             const { error } = await supabase
                 .from('guestbook')
                 .insert({
-                    user_id: user.id,
-                    author_name: profile?.display_name || user.email?.split('@')[0] || 'Anonymous',
+                    user_id: user.uid,
+                    author_name: displayName || user.email?.split('@')[0] || 'Anonymous',
                     message,
                     emoji: selectedEmoji
                 } as any)

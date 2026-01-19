@@ -1,19 +1,28 @@
 'use client'
 
 import { useState } from 'react'
-import { useAuth } from '../contexts/AuthContext'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
+import { auth, storage } from '@/lib/firebase'
 
 export default function Signup() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
+    const [displayName, setDisplayName] = useState('')
+    const [file, setFile] = useState<File | null>(null)
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const [success, setSuccess] = useState(false)
-    const { signUp } = useAuth()
     const router = useRouter()
+
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files[0]) {
+            setFile(e.target.files[0])
+        }
+    }
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -31,14 +40,38 @@ export default function Signup() {
 
         setLoading(true)
 
-        const { error } = await signUp(email, password)
+        try {
+            // 1. Create User
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password)
+            const user = userCredential.user
 
-        if (error) {
-            setError(error.message)
-            setLoading(false)
-        } else {
+            let photoURL = ''
+
+            // 2. Upload Profile Photo (if selected)
+            if (file) {
+                const storageRef = ref(storage, `profile_photos/${user.uid}/${file.name}`)
+                await uploadBytes(storageRef, file)
+                photoURL = await getDownloadURL(storageRef)
+            }
+
+            // 3. Update Profile
+            await updateProfile(user, {
+                displayName: displayName,
+                photoURL: photoURL
+            })
+
             setSuccess(true)
             setTimeout(() => router.push('/dashboard'), 2000)
+
+        } catch (err: any) {
+            console.error('Signup Error:', err)
+            if (err.code === 'auth/email-already-in-use') {
+                setError('User with this email already exists. Please sign in.')
+            } else {
+                setError('Failed to create account. ' + err.message)
+            }
+        } finally {
+            setLoading(false)
         }
     }
 
@@ -75,6 +108,22 @@ export default function Signup() {
                             )}
 
                             <div className="form-group">
+                                <label htmlFor="displayName" className="form-label">
+                                    <span className="label-icon">👤</span>
+                                    Full Name
+                                </label>
+                                <input
+                                    type="text"
+                                    id="displayName"
+                                    className="input"
+                                    placeholder="Your Name"
+                                    value={displayName}
+                                    onChange={(e) => setDisplayName(e.target.value)}
+                                    required
+                                />
+                            </div>
+
+                            <div className="form-group">
                                 <label htmlFor="email" className="form-label">
                                     <span className="label-icon">📧</span>
                                     Email Address
@@ -87,6 +136,20 @@ export default function Signup() {
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     required
+                                />
+                            </div>
+
+                            <div className="form-group">
+                                <label htmlFor="photo" className="form-label">
+                                    <span className="label-icon">📸</span>
+                                    Profile Photo
+                                </label>
+                                <input
+                                    type="file"
+                                    id="photo"
+                                    className="input"
+                                    onChange={handleFileChange}
+                                    accept="image/*"
                                 />
                             </div>
 

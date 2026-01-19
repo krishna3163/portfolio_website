@@ -87,9 +87,9 @@ export default function Projects() {
                 <div className="liquid-glass card">
                     <h2 className="flicker">More Darkness Awaits</h2>
                     <p className="text-muted">
-                        These are just the beginning. Explore deeper to discover 50+ cursed projects.
+                        More cursed projects are being summoned from the void. Check back soon for updates.
                     </p>
-                    <button className="btn btn-primary">View All Projects</button>
+                    <Link href="/contact" className="btn btn-primary">Get in Touch</Link>
                 </div>
             </section>
         </main>

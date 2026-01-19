@@ -21,13 +21,14 @@ const playfair = Playfair_Display({
     subsets: ['latin'],
     variable: '--font-display',
     display: 'swap',
-    preload: true,
+    preload: false,
     weight: ['400', '700'],
 })
 const robotoSlab = Roboto_Slab({
     subsets: ['latin'],
     variable: '--font-roboto-slab',
     display: 'swap',
+    preload: false,
     weight: ['300', '400', '700'],
 })
 
@@ -60,9 +61,6 @@ export default function RootLayout({
 
                     {/* Blood Drip Effect */}
                     <div className="blood-drip-container">
-                        <div className="blood-drip-effect"></div>
-                        <div className="blood-drip-effect"></div>
-                        <div className="blood-drip-effect"></div>
                         <div className="blood-drip-effect"></div>
                         <div className="blood-drip-effect"></div>
                         <div className="blood-drip-effect"></div>

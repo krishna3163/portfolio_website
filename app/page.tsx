@@ -10,7 +10,7 @@ export default function Home() {
         <>
             <main className="page-container">
                 <section className="hero-section fade-in">
-                    <h1 className="glitch text-gradient text-6xl md:text-8xl mb-6 font-extrabold" data-text="Hi There! I'm Krishna">
+                    <h1 className="glitch text-gradient text-7xl md:text-9xl mb-8 font-extrabold tracking-tight" data-text="Hi There! I'm Krishna">
                         <TypewriterEffect text="Hi There! I'm Krishna" speed={80} />
                     </h1>
                     <p className="hero-subtitle">

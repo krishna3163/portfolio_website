@@ -1,16 +1,16 @@
 'use client'
 
 import { useState } from 'react'
-import { useAuth } from '../contexts/AuthContext'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '@/lib/firebase'
 
 export default function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
-    const { signIn } = useAuth()
     const router = useRouter()
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -18,13 +18,17 @@ export default function Login() {
         setError('')
         setLoading(true)
 
-        const { error } = await signIn(email, password)
-
-        if (error) {
-            setError(error.message)
-            setLoading(false)
-        } else {
+        try {
+            await signInWithEmailAndPassword(auth, email, password)
             router.push('/dashboard')
+        } catch (err: any) {
+            console.error('Login Error:', err)
+            if (err.code === 'auth/invalid-credential' || err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password') {
+                setError('Invalid email or password. Please try again.')
+            } else {
+                setError('Failed to log in. ' + err.message)
+            }
+            setLoading(false)
         }
     }
 
