@@ -264,6 +264,7 @@
 @media (max-width: 768px) {
     .liquid-nav {
         padding: 16px 20px;
+        z-index: 1002;
     }
 
     .mobile-menu-btn {
@@ -271,6 +272,7 @@
         position: absolute;
         right: 20px;
         top: 20px;
+        z-index: 1003;
     }
 
     .nav-links {
@@ -279,7 +281,8 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(5, 8, 20, 0.98);
+        background: rgba(0, 0, 0, 0.98);
+        backdrop-filter: blur(20px);
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -287,7 +290,7 @@
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.3s ease;
-        z-index: 999;
+        z-index: 1001;
     }
 
     .nav-links.open {
@@ -297,11 +300,15 @@
 
     .nav-link {
         font-size: 1.5rem;
+        color: var(--color-text-primary) !important;
+        text-shadow: 0 0 10px rgba(204, 0, 0, 0.5);
+        font-weight: 600;
     }
 
     .switcher {
         width: 200px;
         height: 60px;
+        margin-bottom: 20px;
     }
 
     .switcher__option {
