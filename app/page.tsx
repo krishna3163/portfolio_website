@@ -11,7 +11,7 @@ export default function Home() {
         <>
             <main className="page-container">
                 <section className="hero-section fade-in">
-                    <h1 className="glitch text-gradient text-5xl md:text-7xl mb-6 font-extrabold tracking-tight" data-text="Krishna Kumar">
+                    <h1 className="glitch text-gradient text-7xl md:text-9xl mb-6 font-extrabold tracking-tight" data-text="Krishna Kumar">
                         Krishna Kumar
                     </h1>
                     <h2 className="text-2xl md:text-4xl text-blood mb-8 font-semibold">
