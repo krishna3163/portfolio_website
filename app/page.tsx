@@ -42,7 +42,7 @@ export default function Home() {
                         <Link href="/contact" className="btn btn-secondary text-lg">
                             Contact Me
                         </Link>
-                        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-outline text-lg" style={{ border: '1px solid rgba(255,255,255,0.2)' }}>
+                        <a href="https://drive.google.com/file/d/1f2Cd9hWhg7ggWAK6GRgtiOchNEblXaBU/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="btn btn-outline text-lg" style={{ border: '1px solid rgba(255,255,255,0.2)' }}>
                             📄 Resume
                         </a>
                     </div>
