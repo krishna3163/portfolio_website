@@ -5,13 +5,13 @@ import Link from 'next/link'
 import { useAuth } from '../contexts/AuthContext'
 
 export default function LiquidGlassNav() {
-    const [theme, setTheme] = useState('dark')
+    const [theme, setTheme] = useState('horror')
     const [previousTheme, setPreviousTheme] = useState('')
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const { user, signOut } = useAuth()
 
     useEffect(() => {
-        const savedTheme = localStorage.getItem('theme') || 'dark'
+        const savedTheme = localStorage.getItem('theme') || 'horror'
         setTheme(savedTheme)
         document.documentElement.setAttribute('data-theme', savedTheme)
     }, [])
@@ -105,17 +105,27 @@ export default function LiquidGlassNav() {
 
                 {user ? (
                     <>
-                        <Link href="/dashboard" className="nav-link nav-link-special" onClick={() => setMobileMenuOpen(false)}>
-                            Dashboard
+                        <Link href="/dashboard" className="nav-link" onClick={() => setMobileMenuOpen(false)}>
+                            👻 Dashboard
                         </Link>
                         <button className="nav-link nav-link-logout" onClick={handleSignOut}>
-                            Logout
+                            🚪 Logout
                         </button>
                     </>
                 ) : (
-                    <Link href="/login" className="nav-link nav-link-special" onClick={() => setMobileMenuOpen(false)}>
-                        Enter Void
-                    </Link>
+                    <>
+                        <Link href="/login" className="nav-link nav-link-special" onClick={() => setMobileMenuOpen(false)}>
+                            🔐 Login
+                        </Link>
+                        <Link href="/signup" className="nav-link" style={{
+                            background: 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))',
+                            padding: '8px 20px',
+                            borderRadius: '8px',
+                            fontWeight: '600'
+                        }} onClick={() => setMobileMenuOpen(false)}>
+                            ✨ Sign Up
+                        </Link>
+                    </>
                 )}
             </div>
         </nav>
