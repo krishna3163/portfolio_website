@@ -195,13 +195,13 @@ export default function Certificates() {
                         </div>
                         <div className="stat-item">
                             <span className="stat-value text-blood">
-                                {[...new Set(certificates.flatMap(c => c.skills))].length}
+                                {Array.from(new Set(certificates.flatMap(c => c.skills))).length}
                             </span>
                             <span className="stat-label">Skills Mastered</span>
                         </div>
                         <div className="stat-item">
                             <span className="stat-value text-blood">
-                                {[...new Set(certificates.map(c => c.issuer))].length}
+                                {Array.from(new Set(certificates.map(c => c.issuer))).length}
                             </span>
                             <span className="stat-label">Issuers</span>
                         </div>
