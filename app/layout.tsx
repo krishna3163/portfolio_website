@@ -1,6 +1,15 @@
 import type { Metadata } from 'next'
 import { Inter, Playfair_Display, Roboto_Slab } from 'next/font/google'
 import './globals.css'
+import './auth.css'
+import './horror-effects.css'
+import './guestbook.css'
+import './project-detail.css'
+import './components/liquid-nav.css'
+import './components/AnimatedCharacter.css'
+import LiquidGlassNav from './components/LiquidGlassNav'
+import { AuthProvider } from './contexts/AuthContext'
+import ClientEffects from './components/ClientEffects'
 
 const inter = Inter({
     subsets: ['latin'],
@@ -23,17 +32,17 @@ const robotoSlab = Roboto_Slab({
 })
 
 export const metadata: Metadata = {
-    title: 'Krishna Kumar | Blockchain & Web Developer',
-    description: 'Blockchain Developer, Problem Solver, Web Developer specializing in React and Next.js. Building modern web experiences with clean code and thoughtful design.',
+    title: 'Krishna Kumar | Horror Portfolio',
+    description: 'A dark portfolio showcasing cursed projects and nightmare-inducing code. Blockchain Developer, Problem Solver, Web Developer.',
     openGraph: {
-        title: 'Krishna Kumar | Blockchain & Web Developer',
-        description: 'Blockchain Developer, Problem Solver, and Web Developer specializing in React and Next.js',
+        title: 'Krishna Kumar | Horror Portfolio',
+        description: 'Enter the void - A horror-themed developer portfolio',
         images: ['/images/AbhishekX.png'],
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Krishna Kumar | Blockchain & Web Developer',
-        description: 'Blockchain Developer, Problem Solver, and Web Developer specializing in React and Next.js',
+        title: 'Krishna Kumar | Horror Portfolio',
+        description: 'Enter the void - A horror-themed developer portfolio',
         images: ['/images/AbhishekX.png'],
     },
 }
@@ -44,9 +53,34 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="en" className="scroll-smooth dark" suppressHydrationWarning>
+        <html lang="en" className="scroll-smooth" suppressHydrationWarning data-theme="dark">
             <body className={`${inter.variable} ${playfair.variable} ${robotoSlab.variable} font-sans antialiased`}>
-                {children}
+                <AuthProvider>
+                    <LiquidGlassNav />
+
+                    {/* Blood Drip Effect */}
+                    <div className="blood-drip-container">
+                        <div className="blood-drip-effect"></div>
+                        <div className="blood-drip-effect"></div>
+                        <div className="blood-drip-effect"></div>
+                        <div className="blood-drip-effect"></div>
+                        <div className="blood-drip-effect"></div>
+                        <div className="blood-drip-effect"></div>
+                        <div className="blood-drip-effect"></div>
+                    </div>
+
+                    {/* Fog Effect */}
+                    <div className="fog-effect"></div>
+
+                    {/* Cobweb Corners */}
+                    <div className="cobweb-corner top-left"></div>
+                    <div className="cobweb-corner top-right"></div>
+
+                    {/* Client-side Effects */}
+                    <ClientEffects />
+
+                    {children}
+                </AuthProvider>
             </body>
         </html>
     )

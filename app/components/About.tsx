@@ -20,13 +20,13 @@ export default function About() {
                         {/* About Text */}
                         <div className="space-y-6">
                             <p className="text-lg text-foreground/90 leading-relaxed">
-                                I'm a passionate <span className="text-primary font-semibold">Full Stack Developer</span> with expertise in building modern web applications. I love turning ideas into reality through clean, efficient code.
+                                Hi there! 👋 I'm <span className="text-primary font-semibold">Krishna Kumar</span>, a passionate Software Engineer with expertise in building scalable applications and solving complex problems.
                             </p>
                             <p className="text-lg text-foreground/80 leading-relaxed">
-                                With a strong foundation in the <span className="text-primary font-semibold">MERN stack</span>, I specialize in creating seamless user experiences and robust backend systems. I'm constantly learning and exploring new technologies to stay ahead in this ever-evolving field.
+                                I love creating efficient solutions and learning new technologies. With a strong foundation in <span className="text-primary font-semibold">Full Stack Development</span>, I enjoy working on everything from designing intuitive user interfaces to architecting robust backend systems.
                             </p>
                             <p className="text-lg text-foreground/80 leading-relaxed">
-                                When I'm not coding, you'll find me exploring new frameworks, contributing to open-source projects, or sharing knowledge with the developer community.
+                                Currently, I'm focusing on advanced algorithms, system design, and building full-stack web applications with modern technologies.
                             </p>
                         </div>
 
@@ -38,28 +38,32 @@ export default function About() {
                                     <span className="text-primary text-xl">💼</span>
                                     <div>
                                         <p className="font-semibold">Role</p>
-                                        <p className="text-muted">Full Stack Developer</p>
+                                        <p className="text-muted">Software Engineer</p>
                                     </div>
                                 </li>
                                 <li className="flex items-start gap-3">
-                                    <span className="text-primary text-xl">🎓</span>
-                                    <div>
-                                        <p className="font-semibold">Education</p>
-                                        <p className="text-muted">B.Tech in Computer Science</p>
-                                    </div>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <span className="text-primary text-xl">🚀</span>
-                                    <div>
-                                        <p className="font-semibold">Specialization</p>
-                                        <p className="text-muted">MERN Stack, Next.js, AWS</p>
-                                    </div>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <span className="text-primary text-xl">🌍</span>
+                                    <span className="text-primary text-xl">📍</span>
                                     <div>
                                         <p className="font-semibold">Location</p>
-                                        <p className="text-muted-foreground">Lucknow, UP, India</p>
+                                        <p className="text-muted-foreground">India</p>
+                                    </div>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="text-primary text-xl">📧</span>
+                                    <div>
+                                        <p className="font-semibold">Email</p>
+                                        <a href="mailto:krishna.0858@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">krishna.0858@gmail.com</a>
+                                    </div>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="text-primary text-xl">🌐</span>
+                                    <div>
+                                        <p className="font-semibold">Socials</p>
+                                        <div className="flex gap-3 text-2xl mt-1">
+                                            <a href="https://in.linkedin.com/in/krishna0858" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" title="LinkedIn">👔</a>
+                                            <a href="https://github.com/krishna3163" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" title="GitHub">💻</a>
+                                            <a href="https://leetcode.com/u/krishna0858/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" title="LeetCode">🧠</a>
+                                        </div>
                                     </div>
                                 </li>
                             </ul>

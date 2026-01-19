@@ -1,0 +1,441 @@
+/* Horror Effects CSS */
+
+/* Cursor Trail */
+.cursor-trail-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.trail-point {
+    position: fixed;
+    pointer-events: none;
+}
+
+.blood-drop {
+    width: 10px;
+    height: 12px;
+    background: linear-gradient(to bottom, #8b0000, #cc0000, #ff3333);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    box-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
+}
+
+.cursor-glow {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, rgba(139, 0, 0, 0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    animation: cursorPulse 1s ease-in-out infinite;
+}
+
+@keyframes cursorPulse {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.3);
+        opacity: 0.8;
+    }
+}
+
+/* Typewriter Effect */
+.typewriter {
+    display: inline;
+}
+
+.typewriter-cursor {
+    display: inline-block;
+    color: var(--color-primary);
+    font-weight: bold;
+    margin-left: 2px;
+    animation: cursorBlink 0.8s step-end infinite;
+}
+
+@keyframes cursorBlink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Enhanced Glitch Effect */
+.glitch {
+    position: relative;
+    animation: glitch 2.5s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    animation: glitchTop 1.5s infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+    color: #ff0000;
+}
+
+.glitch::after {
+    animation: glitchBottom 2s infinite;
+    clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+    color: #00ffff;
+}
+
+@keyframes glitchTop {
+
+    0%,
+    100% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: translate(-3px, 3px);
+    }
+
+    40% {
+        transform: translate(3px, -3px);
+    }
+
+    60% {
+        transform: translate(-3px, 0);
+    }
+
+    80% {
+        transform: translate(3px, 3px);
+    }
+}
+
+@keyframes glitchBottom {
+
+    0%,
+    100% {
+        transform: translate(0);
+    }
+
+    25% {
+        transform: translate(4px, 0);
+    }
+
+    50% {
+        transform: translate(-4px, 4px);
+    }
+
+    75% {
+        transform: translate(2px, -2px);
+    }
+}
+
+/* Screen Shake Effect */
+.screen-shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-5px);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(5px);
+    }
+}
+
+/* Blood Drip Effect */
+.blood-drip-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    pointer-events: none;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.blood-drip-effect {
+    position: absolute;
+    top: 0;
+    width: 8px;
+    height: 0;
+    background: linear-gradient(to bottom,
+            #4a0000 0%,
+            #8b0000 30%,
+            #cc0000 60%,
+            transparent 100%);
+    border-radius: 0 0 50% 50%;
+    animation: bloodDrip 6s ease-in-out infinite;
+}
+
+.blood-drip-effect:nth-child(1) {
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.blood-drip-effect:nth-child(2) {
+    left: 15%;
+    animation-delay: 1.5s;
+}
+
+.blood-drip-effect:nth-child(3) {
+    left: 25%;
+    animation-delay: 0.5s;
+}
+
+.blood-drip-effect:nth-child(4) {
+    left: 45%;
+    animation-delay: 2.5s;
+}
+
+.blood-drip-effect:nth-child(5) {
+    left: 65%;
+    animation-delay: 1s;
+}
+
+.blood-drip-effect:nth-child(6) {
+    left: 80%;
+    animation-delay: 3s;
+}
+
+.blood-drip-effect:nth-child(7) {
+    left: 95%;
+    animation-delay: 2s;
+}
+
+@keyframes bloodDrip {
+    0% {
+        height: 0;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    50% {
+        height: 150px;
+        opacity: 0.8;
+    }
+
+    80% {
+        height: 150px;
+        opacity: 0.4;
+    }
+
+    100% {
+        height: 0;
+        opacity: 0;
+    }
+}
+
+/* Fog Overlay Effect */
+.fog-effect {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 30%;
+    background: linear-gradient(to top,
+            rgba(5, 8, 20, 0.95) 0%,
+            rgba(10, 18, 40, 0.5) 50%,
+            transparent 100%);
+    pointer-events: none;
+    z-index: 4;
+    animation: fogMove 20s ease-in-out infinite;
+}
+
+@keyframes fogMove {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-25%);
+    }
+}
+
+/* Horror Text Effects */
+.text-blood {
+    color: #cc0000;
+    text-shadow:
+        0 0 5px rgba(204, 0, 0, 0.5),
+        0 0 20px rgba(139, 0, 0, 0.3);
+}
+
+.text-glow-horror {
+    animation: horrorGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes horrorGlow {
+    from {
+        text-shadow:
+            0 0 5px rgba(204, 0, 0, 0.5),
+            0 0 20px rgba(139, 0, 0, 0.3),
+            0 0 35px rgba(100, 0, 0, 0.2);
+    }
+
+    to {
+        text-shadow:
+            0 0 10px rgba(204, 0, 0, 0.8),
+            0 0 30px rgba(139, 0, 0, 0.5),
+            0 0 50px rgba(100, 0, 0, 0.3);
+    }
+}
+
+/* Cobweb Corner Effects */
+.cobweb-corner {
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.3;
+}
+
+.cobweb-corner.top-left {
+    top: 0;
+    left: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M0 0 Q 50 30 100 0 M0 0 Q 30 50 0 100 M0 0 Q 40 40 100 100' stroke='rgba(255,255,255,0.3)' fill='none' stroke-width='0.5'/%3E%3Ccircle cx='50' cy='50' r='2' fill='rgba(255,255,255,0.5)'/%3E%3C/svg%3E") no-repeat;
+}
+
+.cobweb-corner.top-right {
+    top: 0;
+    right: 0;
+    transform: scaleX(-1);
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M0 0 Q 50 30 100 0 M0 0 Q 30 50 0 100 M0 0 Q 40 40 100 100' stroke='rgba(255,255,255,0.3)' fill='none' stroke-width='0.5'/%3E%3Ccircle cx='50' cy='50' r='2' fill='rgba(255,255,255,0.5)'/%3E%3C/svg%3E") no-repeat;
+}
+
+/* Eerie Floating Animation */
+.float-eerie {
+    animation: eerieFloat 6s ease-in-out infinite;
+}
+
+@keyframes eerieFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(-10px) rotate(1deg);
+    }
+
+    50% {
+        transform: translateY(-5px) rotate(-1deg);
+    }
+
+    75% {
+        transform: translateY(-15px) rotate(0.5deg);
+    }
+}
+
+/* Heartbeat Pulse */
+.heartbeat {
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    14% {
+        transform: scale(1.1);
+    }
+
+    28% {
+        transform: scale(1);
+    }
+
+    42% {
+        transform: scale(1.1);
+    }
+
+    70% {
+        transform: scale(1);
+    }
+}
+
+/* Spooky Border */
+.spooky-border {
+    position: relative;
+}
+
+.spooky-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg,
+            #8b0000,
+            transparent,
+            #8b0000,
+            transparent);
+    background-size: 400% 400%;
+    animation: spookyBorder 3s ease infinite;
+    border-radius: inherit;
+    z-index: -1;
+}
+
+@keyframes spookyBorder {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+
+    .cursor-trail-container,
+    .blood-drip-container,
+    .cobweb-corner {
+        display: none;
+    }
+
+    .fog-effect {
+        height: 20%;
+    }
+}

@@ -1,0 +1,124 @@
+[
+    {
+        "name": "Bank-management-system-in-C-language",
+        "description": "A comprehensive bank management system built with C language featuring customer account management, transactions, and account information tracking.",
+        "url": "https://github.com/krishna3163/Bank-management-system-in-C-language",
+        "language": "C",
+        "featured": true
+    },
+    {
+        "name": "Airlines-reservation-system",
+        "description": "Simple airline seat booking application in C that allows users to book seats, view availability, and manage reservations.",
+        "url": "https://github.com/krishna3163/Airlines-reservation-system",
+        "language": "C",
+        "featured": true
+    },
+    {
+        "name": "AI-Medical-Assistant",
+        "description": "AI Medical Assistant project.",
+        "url": "https://github.com/krishna3163/AI-Medical-Assistant",
+        "language": "Python"
+    },
+    {
+        "name": "Krishna-Kumar-Portfolio",
+        "description": "My personal portfolio website.",
+        "url": "https://github.com/krishna3163/Krishna-Kumar-Portfolio",
+        "language": "TypeScript"
+    },
+    {
+        "name": "Location_Tracker",
+        "description": "Location tracking application.",
+        "url": "https://github.com/krishna3163/Location_Tracker",
+        "language": "Unknown"
+    },
+    {
+        "name": "OpenDiscover",
+        "description": "OpenDiscover project.",
+        "url": "https://github.com/krishna3163/OpenDiscover",
+        "language": "Unknown"
+    },
+    {
+        "name": "QuickShop",
+        "description": "E-commerce related project.",
+        "url": "https://github.com/krishna3163/QuickShop",
+        "language": "Unknown"
+    },
+    {
+        "name": "babua-dsa-patterns-course",
+        "description": "DSA Patterns Course resources.",
+        "url": "https://github.com/krishna3163/babua-dsa-patterns-course",
+        "language": "Unknown"
+    },
+    {
+        "name": "leetcode",
+        "description": "LeetCode solutions and practice.",
+        "url": "https://github.com/krishna3163/leetcode",
+        "language": "Java"
+    },
+    {
+        "name": "student-management-system",
+        "description": "Student Management System.",
+        "url": "https://github.com/krishna3163/student-management-system",
+        "language": "Unknown"
+    },
+    {
+        "name": "online-quiz-management-system",
+        "description": "Online Quiz Management System.",
+        "url": "https://github.com/krishna3163/online-quiz-management-system",
+        "language": "Unknown"
+    },
+    {
+        "name": "atm-simulation-system",
+        "description": "ATM Simulation System.",
+        "url": "https://github.com/krishna3163/atm-simulation-system",
+        "language": "Unknown"
+    },
+    {
+        "name": "library-management-system",
+        "description": "Library Management System.",
+        "url": "https://github.com/krishna3163/library-management-system",
+        "language": "Unknown"
+    },
+    {
+        "name": "tic-tac-toe-game",
+        "description": "Tic Tac Toe Game.",
+        "url": "https://github.com/krishna3163/tic-tac-toe-game",
+        "language": "Unknown"
+    },
+    {
+        "name": "number-guessing-game",
+        "description": "Number Guessing Game.",
+        "url": "https://github.com/krishna3163/number-guessing-game",
+        "language": "Unknown"
+    },
+    {
+        "name": "attendance-management-system",
+        "description": "Attendance Management System.",
+        "url": "https://github.com/krishna3163/attendance-management-system",
+        "language": "Unknown"
+    },
+    {
+        "name": "brick-breaker-game",
+        "description": "Brick Breaker Game.",
+        "url": "https://github.com/krishna3163/brick-breaker-game",
+        "language": "Unknown"
+    },
+    {
+        "name": "currency-converter",
+        "description": "Currency Converter Application.",
+        "url": "https://github.com/krishna3163/currency-converter",
+        "language": "Unknown"
+    },
+    {
+        "name": "Vaccine-registration-portal",
+        "description": "Vaccine Registration Portal.",
+        "url": "https://github.com/krishna3163/Vaccine-registration-portal",
+        "language": "Unknown"
+    },
+    {
+        "name": "Review-System",
+        "description": "Review System.",
+        "url": "https://github.com/krishna3163/kk",
+        "language": "Unknown"
+    }
+]

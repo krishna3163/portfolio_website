@@ -1,0 +1,323 @@
+/* Liquid Glass Navigation Styles */
+
+.liquid-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: var(--color-surface-glass);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border-bottom: var(--glass-border);
+    box-shadow: var(--shadow-md);
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-link {
+    color: var(--color-text-default);
+    font-weight: var(--font-weight-medium);
+    transition: all var(--duration-fast) var(--ease);
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: width var(--duration-base) var(--ease);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Theme Switcher Styles */
+.switcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 244px;
+    height: 70px;
+    box-sizing: border-box;
+    padding: 8px 12px 10px;
+    border: none;
+    border-radius: 99em;
+    background: var(--color-surface-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: var(--glass-border);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    transition: all var(--duration-base) var(--ease);
+}
+
+.switcher__legend {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.switcher__input {
+    clip: rect(0 0 0 0);
+    clip-path: inset(100%);
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+}
+
+.switcher__icon {
+    display: block;
+    width: 100%;
+    transition: scale var(--duration-base) var(--ease-bounce);
+    --c: var(--color-text-default);
+}
+
+.switcher__option {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 16px;
+    width: 68px;
+    height: 100%;
+    box-sizing: border-box;
+    border-radius: 99em;
+    opacity: 1;
+    transition: all var(--duration-fast);
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+
+.switcher__option:hover {
+    --c: var(--color-primary);
+}
+
+.switcher__option:hover .switcher__icon {
+    scale: 1.2;
+}
+
+.switcher__option:has(input:checked) {
+    --c: var(--color-text-glow);
+    cursor: auto;
+}
+
+.switcher__option:has(input:checked) .switcher__icon {
+    scale: 1;
+}
+
+/* Animated Toggle Background */
+.switcher::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    display: block;
+    width: 84px;
+    height: calc(100% - 10px);
+    border-radius: 99em;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    z-index: 1;
+    box-shadow: var(--shadow-glow);
+    transition: translate var(--duration-base) var(--ease-bounce);
+}
+
+.switcher:has(input[data-option="1"]:checked)::after {
+    translate: 0 0;
+    animation: scaleToggle 440ms ease;
+}
+
+.switcher:has(input[data-option="2"]:checked)::after {
+    translate: 76px 0;
+    animation: scaleToggle2 440ms ease;
+}
+
+.switcher:has(input[data-option="3"]:checked)::after {
+    translate: 152px 0;
+    animation: scaleToggle3 440ms ease;
+}
+
+@keyframes scaleToggle {
+    0% {
+        scale: 1 1;
+    }
+
+    50% {
+        scale: 1.1 1;
+    }
+
+    100% {
+        scale: 1 1;
+    }
+}
+
+@keyframes scaleToggle2 {
+    0% {
+        scale: 1 1;
+    }
+
+    50% {
+        scale: 1.2 1;
+    }
+
+    100% {
+        scale: 1 1;
+    }
+}
+
+@keyframes scaleToggle3 {
+    0% {
+        scale: 1 1;
+    }
+
+    50% {
+        scale: 1.1 1;
+    }
+
+    100% {
+        scale: 1 1;
+    }
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 25px;
+}
+
+.hamburger span {
+    display: block;
+    height: 3px;
+    background: var(--color-text-default);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+/* Special Nav Links */
+.nav-link-special {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: var(--font-weight-semibold);
+}
+
+.nav-link-logout {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+    color: #cc0000;
+    padding: 0;
+}
+
+.nav-link-logout:hover {
+    color: #ff3333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .liquid-nav {
+        padding: 16px 20px;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(5, 8, 20, 0.98);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 999;
+    }
+
+    .nav-links.open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .nav-link {
+        font-size: 1.5rem;
+    }
+
+    .switcher {
+        width: 200px;
+        height: 60px;
+    }
+
+    .switcher__option {
+        width: 56px;
+        padding: 0 12px;
+    }
+
+    .switcher::after {
+        width: 68px;
+    }
+
+    .switcher:has(input[data-option="2"]:checked)::after {
+        translate: 64px 0;
+    }
+
+    .switcher:has(input[data-option="3"]:checked)::after {
+        translate: 128px 0;
+    }
+}

@@ -4,33 +4,30 @@ import { motion } from 'framer-motion'
 
 const skillCategories = [
     {
-        category: 'Frontend',
+        category: 'Programming Languages',
+        skills: [
+            { name: 'C', icon: '©️' },
+            { name: 'Java', icon: '☕' },
+            { name: 'Python', icon: '🐍' },
+            { name: 'JavaScript', icon: '📜' },
+        ],
+    },
+    {
+        category: 'Frameworks & Technologies',
         skills: [
             { name: 'React', icon: '⚛️' },
-            { name: 'Next.js', icon: '▲' },
-            { name: 'TypeScript', icon: '📘' },
-            { name: 'Tailwind CSS', icon: '🎨' },
-            { name: 'Framer Motion', icon: '✨' },
-        ],
-    },
-    {
-        category: 'Backend',
-        skills: [
             { name: 'Node.js', icon: '🟢' },
-            { name: 'Express', icon: '🚂' },
+            { name: 'Express.js', icon: '🚂' },
             { name: 'MongoDB', icon: '🍃' },
-            { name: 'PostgreSQL', icon: '🐘' },
-            { name: 'REST API', icon: '🔌' },
         ],
     },
     {
-        category: 'Tools & Others',
+        category: 'Tools & Platforms',
         skills: [
             { name: 'Git', icon: '📚' },
-            { name: 'Docker', icon: '🐳' },
-            { name: 'AWS', icon: '☁️' },
-            { name: 'Python', icon: '🐍' },
-            { name: 'Java', icon: '☕' },
+            { name: 'GitHub', icon: '🐙' },
+            { name: 'VS Code', icon: '💻' },
+            { name: 'Linux', icon: '🐧' },
         ],
     },
 ]

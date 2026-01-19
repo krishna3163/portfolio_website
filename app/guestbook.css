@@ -1,0 +1,151 @@
+/* Guestbook Styles */
+
+.guestbook-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--spacing-xl);
+}
+
+.guestbook-form-container {
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.guestbook-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.login-prompt {
+    text-align: center;
+    padding: var(--spacing-xl);
+}
+
+.emoji-selector {
+    margin-bottom: var(--spacing-md);
+}
+
+.emoji-selector label {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+}
+
+.emoji-options {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.emoji-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid transparent;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.emoji-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+}
+
+.emoji-btn.selected {
+    border-color: var(--color-primary);
+    background: rgba(79, 124, 255, 0.2);
+    box-shadow: 0 0 10px var(--color-accent-glow);
+}
+
+.char-count {
+    text-align: right;
+    font-size: var(--font-size-xs);
+    margin-top: var(--spacing-xs);
+}
+
+.guestbook-entries {
+    margin-top: var(--spacing-xl);
+}
+
+.guestbook-entries>h2 {
+    margin-bottom: var(--spacing-lg);
+}
+
+.entries-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.guestbook-entry {
+    padding: var(--spacing-lg);
+}
+
+.entry-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.entry-emoji {
+    font-size: 1.5rem;
+}
+
+.entry-author {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+}
+
+.entry-date {
+    font-size: var(--font-size-xs);
+    margin-left: auto;
+}
+
+.entry-message {
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-secondary);
+    margin: 0;
+    word-wrap: break-word;
+}
+
+.loading-state {
+    text-align: center;
+    padding: var(--spacing-2xl);
+}
+
+.loading-skull {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: var(--spacing-md);
+    animation: float 2s ease-in-out infinite;
+}
+
+.empty-state {
+    text-align: center;
+    padding: var(--spacing-2xl);
+}
+
+.empty-icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: var(--spacing-md);
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .guestbook-section {
+        padding: var(--spacing-lg);
+    }
+
+    .entry-date {
+        width: 100%;
+        margin-left: 0;
+        margin-top: var(--spacing-xs);
+    }
+}

@@ -1,0 +1,339 @@
+/* Animated Character Styles */
+
+.animated-character {
+    position: fixed;
+    bottom: 20px;
+    z-index: 1000;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    user-select: none;
+}
+
+.animated-character:hover {
+    transform: scale(1.1) !important;
+}
+
+/* Character Body */
+.character-body {
+    position: relative;
+    width: 80px;
+    height: 100px;
+}
+
+.ghost-shape {
+    position: relative;
+    width: 80px;
+    height: 90px;
+    background: linear-gradient(180deg,
+            rgba(200, 220, 255, 0.95) 0%,
+            rgba(180, 200, 255, 0.85) 50%,
+            rgba(160, 180, 255, 0.7) 100%);
+    border-radius: 40px 40px 0 0;
+    animation: ghostFloat 3s ease-in-out infinite;
+    box-shadow:
+        0 0 30px rgba(150, 180, 255, 0.5),
+        inset 0 -20px 40px rgba(100, 130, 255, 0.3);
+}
+
+@keyframes ghostFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Ghost Face */
+.ghost-face {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 50px;
+}
+
+.ghost-eyes {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 8px;
+}
+
+.ghost-eye {
+    width: 16px;
+    height: 20px;
+    background: #1a1a2e;
+    border-radius: 50%;
+    position: relative;
+    animation: eyeBlink 4s ease-in-out infinite;
+}
+
+.ghost-eye::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    top: 4px;
+    left: 4px;
+    animation: eyeShine 2s ease-in-out infinite;
+}
+
+@keyframes eyeBlink {
+
+    0%,
+    45%,
+    55%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    50% {
+        transform: scaleY(0.1);
+    }
+}
+
+@keyframes eyeShine {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.ghost-mouth {
+    width: 20px;
+    height: 12px;
+    background: #1a1a2e;
+    border-radius: 0 0 50% 50%;
+    margin: 8px auto 0;
+    animation: mouthMove 3s ease-in-out infinite;
+}
+
+@keyframes mouthMove {
+
+    0%,
+    100% {
+        width: 20px;
+        height: 12px;
+    }
+
+    50% {
+        width: 16px;
+        height: 8px;
+    }
+}
+
+/* Ghost Bottom Waves */
+.ghost-bottom {
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.ghost-wave {
+    width: 26px;
+    height: 20px;
+    background: linear-gradient(180deg,
+            rgba(180, 200, 255, 0.85) 0%,
+            rgba(160, 180, 255, 0.5) 100%);
+    border-radius: 0 0 50% 50%;
+    animation: waveMove 1.5s ease-in-out infinite;
+}
+
+.ghost-wave:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.ghost-wave:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes waveMove {
+
+    0%,
+    100% {
+        transform: translateY(0) scaleY(1);
+    }
+
+    50% {
+        transform: translateY(5px) scaleY(1.2);
+    }
+}
+
+/* Character Glow */
+.character-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle,
+            rgba(150, 180, 255, 0.4) 0%,
+            rgba(150, 180, 255, 0) 70%);
+    animation: glowPulse 2s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.9;
+    }
+}
+
+/* Character Shadow */
+.character-shadow {
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 15px;
+    background: radial-gradient(ellipse,
+            rgba(0, 0, 0, 0.4) 0%,
+            transparent 70%);
+    animation: shadowPulse 3s ease-in-out infinite;
+}
+
+@keyframes shadowPulse {
+
+    0%,
+    100% {
+        transform: translateX(-50%) scaleX(1);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: translateX(-50%) scaleX(0.8);
+        opacity: 0.3;
+    }
+}
+
+/* Speech Bubble */
+.speech-bubble {
+    position: absolute;
+    bottom: 110px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    color: #1a1a2e;
+    padding: 12px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    animation: bubbleAppear 0.3s ease-out;
+    z-index: 10;
+}
+
+@keyframes bubbleAppear {
+    0% {
+        transform: translateX(-50%) scale(0) translateY(20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(-50%) scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+.bubble-tail {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 12px solid rgba(255, 255, 255, 0.95);
+}
+
+/* Character States */
+.animated-character.walking-left .ghost-shape,
+.animated-character.walking-right .ghost-shape {
+    animation: ghostFloat 0.5s ease-in-out infinite, ghostWalk 0.3s ease-in-out infinite;
+}
+
+@keyframes ghostWalk {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateY(-5px) rotate(2deg);
+    }
+}
+
+.animated-character.waving .ghost-shape {
+    animation: ghostWave 0.5s ease-in-out;
+}
+
+@keyframes ghostWave {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-10deg);
+    }
+
+    75% {
+        transform: rotate(10deg);
+    }
+}
+
+.animated-character.scared .ghost-shape {
+    animation: ghostScared 0.2s ease-in-out infinite;
+}
+
+@keyframes ghostScared {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-3px);
+    }
+
+    75% {
+        transform: translateX(3px);
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .animated-character {
+        display: none;
+        /* Hide on mobile for performance */
+    }
+}
