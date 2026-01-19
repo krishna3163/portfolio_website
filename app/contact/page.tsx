@@ -181,19 +181,29 @@ export default function Contact() {
                                     </div>
                                 </a>
 
-                                <a href="https://www.linkedin.com/in/krishna0858" target="_blank" rel="noopener noreferrer" className="contact-method">
-                                    <span className="method-icon">💼</span>
-                                    <div className="method-details">
-                                        <div className="method-label text-muted">LinkedIn</div>
-                                        <div className="method-value">Connect with me</div>
+                                <a
+                                    href="https://www.linkedin.com/in/krishna0858"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="contact-method liquid-glass"
+                                >
+                                    <div className="method-icon">💼</div>
+                                    <div className="method-content">
+                                        <div className="method-label">LinkedIn</div>
+                                        <div className="method-value">krishna0858</div>
                                     </div>
                                 </a>
 
-                                <a href="https://github.com/krishna3163" target="_blank" rel="noopener noreferrer" className="contact-method">
-                                    <span className="method-icon">💻</span>
-                                    <div className="method-details">
-                                        <div className="method-label text-muted">GitHub</div>
-                                        <div className="method-value">View my code</div>
+                                <a
+                                    href="https://github.com/krishna3163"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="contact-method liquid-glass"
+                                >
+                                    <div className="method-icon">💻</div>
+                                    <div className="method-content">
+                                        <div className="method-label">GitHub</div>
+                                        <div className="method-value">krishna3163</div>
                                     </div>
                                 </a>
                             </div>
