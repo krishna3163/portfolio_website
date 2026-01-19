@@ -83,6 +83,9 @@ export default function RootLayout({
                     {/* Advanced Horror Features */}
                     <AdvancedFeatures />
 
+                    {/* Global Horror Effects */}
+                    <HorrorFeatures />
+
                     {children}
                 </AuthProvider>
             </body>
