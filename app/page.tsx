@@ -14,9 +14,20 @@ export default function Home() {
                     <h1 className="glitch text-gradient text-7xl md:text-9xl mb-6 font-extrabold tracking-tight" data-text="Krishna Kumar">
                         Krishna Kumar
                     </h1>
-                    <h2 className="text-2xl md:text-4xl text-blood mb-8 font-semibold">
-                        Full Stack Developer | <span className="text-white">React, Node.js, Java & Python</span>
-                    </h2>
+                    <div className="text-2xl md:text-4xl text-blood mb-8 font-semibold h-12">
+                        I am a <TypewriterEffect
+                            text={[
+                                "Full Stack Developer",
+                                "React & Node.js Expert",
+                                "Python Enthusiast",
+                                "Problem Solver",
+                                "Open Source Contributor"
+                            ]}
+                            speed={100}
+                            waitBeforeDelete={2000}
+                            className="text-white"
+                        />
+                    </div>
 
                     <p className="hero-description text-muted" style={{
                         maxWidth: '800px',

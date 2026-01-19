@@ -28,8 +28,31 @@ export default function LiquidGlassNav() {
         setMobileMenuOpen(false)
     }
 
+    const [isVisible, setIsVisible] = useState(true)
+    const [lastScrollY, setLastScrollY] = useState(0)
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY
+
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                setIsVisible(false) // Hide on scroll down
+            } else {
+                setIsVisible(true) // Show on scroll up
+            }
+
+            setLastScrollY(currentScrollY)
+        }
+
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [lastScrollY])
+
     return (
-        <nav className="liquid-nav">
+        <nav
+            className={`liquid-nav ${!isVisible ? '-translate-y-full' : 'translate-y-0'}`}
+            style={{ transition: 'transform 0.3s ease-in-out' }}
+        >
             {/* Mobile Menu Button */}
             <button
                 className="mobile-menu-btn"
