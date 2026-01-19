@@ -116,9 +116,9 @@ export default function Home() {
                 <ScrollReveal animation="fade-up">
                     <section className="journey-section">
                         <div className="liquid-glass card">
-                            <h2 className="text-blood flicker">🚀 Evolution of a Developer</h2>
-                            <p className="text-muted" style={{ textAlign: 'center', marginBottom: '40px' }}>
-                                My transformation from student to skilled developer
+                            <h2 className="text-blood">✦ The Journey ✦</h2>
+                            <p className="text-muted" style={{ textAlign: 'center', marginBottom: '40px', fontSize: '1.1rem' }}>
+                                From curious student to full-stack developer
                             </p>
 
                             <div className="timeline">
