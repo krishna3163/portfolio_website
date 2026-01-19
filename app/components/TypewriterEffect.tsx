@@ -79,7 +79,7 @@ export default function TypewriterEffect({
 
         const blinkInterval = setInterval(() => {
             setShowCursor(prev => !prev)
-        }, 530)
+        }, 800) // Slower, relaxed blink
 
         return () => clearInterval(blinkInterval)
     }, [cursor])
@@ -89,8 +89,11 @@ export default function TypewriterEffect({
             {displayText}
             {cursor && (
                 <span
-                    className="typewriter-cursor text-primary ml-1"
-                    style={{ opacity: showCursor ? 1 : 0 }}
+                    className="typewriter-cursor text-primary ml-1 inline-block"
+                    style={{
+                        opacity: showCursor ? 1 : 0,
+                        transition: 'opacity 0.4s ease-in-out' // Smooth fade
+                    }}
                 >
                     |
                 </span>

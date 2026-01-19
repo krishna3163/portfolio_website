@@ -23,7 +23,8 @@ export default function Home() {
                                 "Problem Solver",
                                 "Open Source Contributor"
                             ]}
-                            speed={100}
+                            speed={70}
+                            deleteSpeed={40}
                             waitBeforeDelete={2000}
                             className="text-white"
                         />
